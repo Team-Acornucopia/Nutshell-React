@@ -67,18 +67,6 @@ class ApplicationViews extends Component {
   //   );
   // }
 
-  // render() {
-  //   return (
-  //     <Route
-  //       exact
-  //       path="/news"
-  //       render={props => {
-  //         return <News news={this.state.news} />;
-  //       }}
-  //     />
-  //   );
-  // }
-
   render() {
     return (
       <BrowserRouter>
