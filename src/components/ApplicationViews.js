@@ -1,11 +1,11 @@
-// import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import React, { Component } from "react";
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
-import newsManager from "../managers/newsManager";
+import NewsList from "./news/NewsList"
+import MessagesList from "./messages/MessagesList"
+import NewsManager from "../managers/NewsManager";
 import eventsManager from "../managers/eventsManager";
-import messagesManager from "../managers/messagesManager";
+import MessagesManager from "../managers/MessagesManager";
 import tasksManager from "../managers/tasksManager";
-import News from "./news/News";
 
 class ApplicationViews extends Component {
   // Check if credentials are in local storage
@@ -19,11 +19,14 @@ class ApplicationViews extends Component {
   };
 
   componentDidMount() {
-    const newState = {};
+    // const newState = {
+
+    // };
+
     // here will be fetches for messages, tasks, events, news
     // manager modules built separately
 
-    newsManager.getAll().then(allNews => {
+    NewsManager.getAll().then(allNews => {
       this.setState({
         news: allNews
       });
@@ -41,7 +44,7 @@ class ApplicationViews extends Component {
       });
     });
 
-    messagesManager.getAll().then(allMessages => {
+    MessagesManager.getAll().then(allMessages => {
       this.setState({
         messages: allMessages
       });
@@ -52,32 +55,21 @@ class ApplicationViews extends Component {
     console.log(this.state.messages);
   };
 
-  // below works
-
-  // render() {
-  //   return (
-  //     <React.Fragment>
-  //       {this.state.messages.map(message =>
-  //         <div key={message.id}>{message.message}</div>
-  //       )}
-  //     </React.Fragment>
-  //     // this.state.messages.map(message => {
-  //     //     console.log(message)
-  //     // })
-  //   );
-  // }
-
   render() {
+    console.log(this.state.messages)
     return (
-      <BrowserRouter>
-         <Route
-          exact
-          path="/news"
-          render={props => {
-            return <News news={this.state.news} />;
-          }}
-        />
-      </BrowserRouter>
+        <React.Fragment>
+          <Route exact path="/messages" render={(props) => {
+            return <MessagesList {...props}
+              messages={this.state.messages}
+            />
+          }} />
+          <Route exact path="/news" render={(props) => {
+            return <NewsList {...props}
+              news={this.state.news}
+            />
+          }} />
+        </React.Fragment>
     );
   }
 }

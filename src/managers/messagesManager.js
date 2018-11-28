@@ -1,27 +1,24 @@
-const remoteURL = "http://localhost:5002";
+import APIManager from "./APIManager"
 
-export default {
-    get(id) {
-      return fetch(`${remoteURL}/messages/${id}`).then(e => e.json());
-    },
-    getAll() {
-      return fetch(`${remoteURL}/messages`).then(e => e.json());
-    },
-    removeAndList(id) {
-      return fetch(`http://localhost:5002/messages/${id}`, {
-        method: "DELETE"
-      })
-        .then(e => e.json())
-        .then(() => fetch(`http://localhost:5002/messages`))
-        .then(e => e.json());
-    },
-    post(newMessages) {
-      return fetch(`${remoteURL}/messages`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(newMessages)
-      }).then(data => data.json())
-    }
-  };
+class MessagesManager extends APIManager {
+  getAnimal(id) {
+    return this.get(id)
+  }
+  getAll() {
+    return this.all()
+  }
+  removeAndList(id) {
+    return this.delete(id).then(() => this.all())
+  }
+  post(newMessage) {
+    return fetch("http://localhost:5002/messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newMessage)
+    }).then(data => data.json())
+  }
+}
+
+export default new MessagesManager("messages")
