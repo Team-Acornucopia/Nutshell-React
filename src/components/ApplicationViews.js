@@ -3,9 +3,9 @@ import React, { Component } from "react";
 import NewsList from "./news/NewsList"
 import MessagesList from "./messages/MessagesList"
 import NewsManager from "../managers/NewsManager";
-import eventsManager from "../managers/eventsManager";
+import EventsManager from "../managers/EventsManager";
 import MessagesManager from "../managers/MessagesManager";
-import tasksManager from "../managers/tasksManager";
+import TasksManager from "../managers/TasksManager";
 
 class ApplicationViews extends Component {
   // Check if credentials are in local storage
@@ -32,13 +32,13 @@ class ApplicationViews extends Component {
       });
     });
 
-    eventsManager.getAll().then(allEvents => {
+    EventsManager.getAll().then(allEvents => {
       this.setState({
         events: allEvents
       });
     });
 
-    tasksManager.getAll().then(allTasks => {
+    TasksManager.getAll().then(allTasks => {
       this.setState({
         tasks: allTasks
       });
