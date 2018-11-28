@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ApplicationViews from "./components/ApplicationViews"
 import './App.css';
 
-class App extends Component {
+export default class App extends Component {
   render() {
       return (
           <React.Fragment>
@@ -13,4 +13,3 @@ class App extends Component {
   }
 }
 
-export default App;
