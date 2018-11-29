@@ -14,10 +14,9 @@ export default class Login extends Component {
     this.setState(stateToChange);
   };
 
-  // Simplistic handler for login submit
+  // Simplistic handler for login submit (from practice exercise)
   handleLogin = e => {
     e.preventDefault();
-
     /*
             For now, just store the email and password that
             the customer enters into local storage.
@@ -31,34 +30,8 @@ export default class Login extends Component {
     );
   };
 
-  verifyUser(array, un, pw) {
-    // declare variable to hold result from checking
-    let testResult;
-    for (let i = 0; i < array.length; i++) {
-      if (array[i].username.indexOf(un) > -1) {
-        // now check password
-        if (array[i].password === pw) {
-          // log in
-          // store user ID (from matching object) in session storage
-          sessionStorage.setItem("userID", array[i].id);
-          sessionStorage.setItem("username", array[i].username);
-          // TODO: save user to session storage, hide login div, show everything else
-          testResult = "You are logged in!";
-          break;
-        } else {
-          testResult = "Your password does not match. Please try again.";
-          break;
-        }
-      } else {
-        testResult = "No username found. Please register a new account.";
-      }
-    }
-    // tell the user the result of the test
-    console.log(testResult);
-  }
-
-  verifyUser2 = (event) => {
-    // declare variable to hold result from checking
+  // zac's login function
+  verifyUser = (event) => {
     event.preventDefault()
     let testResult;
     for (let i = 0; i < this.props.users.length; i++) {
@@ -82,17 +55,13 @@ export default class Login extends Component {
     }
     // tell the user the result of the test
     console.log(testResult);
+    // TODO: get this in a modal or message div rather than the console
   }
 
   render() {
     return (
-        // this was just to confirm that users were coming thru - it works
-        // {this.props.users.map(user => (
-        //   <div key={user.id}>
-        //     <h1>{user.username}</h1>
-        //   </div>
-        // ))}
-        <form onSubmit={this.verifyUser2}>
+        // leaving in this form for now, but we can refactor with reactstrap forms if we have enough time
+        <form onSubmit={this.verifyUser}>
         <h1 className="h3 mb-3 font-weight-normal list">Please sign in</h1>
         <label htmlFor="inputUsername">Username</label>
         <input
