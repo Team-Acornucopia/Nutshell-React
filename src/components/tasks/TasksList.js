@@ -4,6 +4,8 @@ import TaskItem from "./TaskItem"
 
 export default class TasksList extends Component {
 
+//This is the same field change from the todo exercise, the deleteTask function
+//is located in the ApplicationViews component.
   handleFieldChange2 = (event) => {
     // this.props.setTodoItemState(event.target.value)
     console.log("woot")
@@ -11,7 +13,7 @@ export default class TasksList extends Component {
   }
 
 
-
+//The only difference between this render and the todo render is the TaskForm component tag
   render() {
     // console.log(this.props.tasks)
 

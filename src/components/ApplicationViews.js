@@ -12,6 +12,10 @@ class ApplicationViews extends Component {
   // Check if credentials are in local storage
   // isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
 
+
+  //I added the taskItem property to the state, this doesnt affect the
+  //TaskList, its actually supposed to be for the TaskForm which is not working at the moment.
+  //Even though its there its not supposed to break anything.
   state = {
     messages: [],
     tasks: [],
@@ -53,25 +57,36 @@ class ApplicationViews extends Component {
     });
   }
 
+
+//This function is not working, its currently being used in TaskForm
 addTask = (task) => TasksManager.post(task)
 .then(tasks => this.setState({
   tasks: tasks
 })
 )
 
+
+//This deleteTask function is working, its being invoqued in the
+//TaskItem component
 deleteTask = (task) => TasksManager.removeAndList(task)
 .then(tasks => this.setState({
   tasks: tasks
   })
 )
 
+//This function is not working its connected to the TaskForm
   setTaskItemState = (val) => {
     this.setState({taskItem: val})
   }
+
+
   // showMessages = () => {
   //   console.log(this.state.messages);
   // };
 
+
+
+  //I added a new route for TasksList.
   render() {
     // console.log(this.state.messages)
     return (

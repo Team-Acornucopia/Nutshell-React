@@ -39,6 +39,10 @@ class TasksManager extends APIManager {
   removeAndList(id) {
     return this.delete(id).then(() => this.all())
   }
+
+  //I added the newTask = {text:this.state.taskItem}, but it may be missplaced
+  //the todo exercise had this fetch in their app.js, since we have it here thats why I tried to
+  //implement it here, but its still not working. Thats the only change here.
   post(newTask) {
     newTask = {text: this.state.taskItem}
     return fetch("http://localhost:5002/tasks", {
