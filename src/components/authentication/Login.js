@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button } from "semantic-ui-react";
+import { Button, Checkbox, Form } from "semantic-ui-react";
 import UserManager from "../../managers/UserManager";
 
 // would like to break this into two separate pages - one for login and one for registration, but this is functional for now
@@ -20,20 +20,12 @@ export default class Login extends Component {
     this.setState(stateToChange);
   };
 
-  // Simplistic handler for login submit (from practice exercise)
-  handleLogin = e => {
-    e.preventDefault();
-    /*
-            For now, just store the email and password that
-            the customer enters into local storage.
-        */
-    sessionStorage.setItem(
-      "credentials",
-      JSON.stringify({
-        email: this.state.email,
-        password: this.state.password
-      })
-    );
+  // function to clear all the fields on the page
+  clearFields = e => {
+    this.refs.userField.value = "";
+    this.refs.passField.value = "";
+    this.refs.newUserField.value = "";
+    this.refs.newPassField.value = "";
   };
 
   // zac's login function
@@ -59,6 +51,7 @@ export default class Login extends Component {
     }
     // tell the user the result of the test
     console.log(testResult);
+    this.clearFields();
   };
 
   // zac's logout function
@@ -102,27 +95,30 @@ export default class Login extends Component {
 
   render() {
     return (
-      // leaving in this form for now, but we can refactor with multiple semantic UI forms if we have enough time
+      // leaving in this basic form for now, but we can refactor with multiple semantic UI forms if we have enough time
       <React.Fragment>
         <form onSubmit={this.verifyUser}>
           <h1 className="">Please sign in</h1>
           <label htmlFor="inputUsername">Username</label>
-          <input
+          <Form.Input
             onChange={this.handleFieldChange}
             type="text"
             id="username"
             placeholder="username"
             required=""
             autoFocus=""
+            ref="userField"
           />
           <label htmlFor="inputPassword">Password</label>
-          <input
+          <Form.Input
             onChange={this.handleFieldChange}
             type="password"
             id="password"
             placeholder="password"
             required=""
+            ref="passField"
           />
+
           <Button basic color="purple" type="submit">
             Sign in
           </Button>
@@ -132,26 +128,29 @@ export default class Login extends Component {
             New user registration
           </h1>
           <label htmlFor="newUsername">Username</label>
-          <input
+          <Form.Input
             onChange={this.handleFieldChange}
             type="text"
             id="username"
             placeholder="desired username"
             required=""
             autoFocus=""
+            ref="newUserField"
           />
           <label htmlFor="newPassword">Password</label>
-          <input
+          <Form.Input
             onChange={this.handleFieldChange}
             type="password"
             id="password"
             placeholder="desired password"
             required=""
+            ref="newPassField"
           />
           <Button basic color="green" type="submit">
             Register
           </Button>
         </form>
+        <br></br>
         <Button onClick={this.logout} basic color="red" type="">
           Log out
         </Button>
