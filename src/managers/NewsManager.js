@@ -1,7 +1,7 @@
 import APIManager from "./APIManager"
 
 class NewsManager extends APIManager {
-  getAnimal(id) {
+  getNews(id) {
     return this.get(id)
   }
   getAll() {

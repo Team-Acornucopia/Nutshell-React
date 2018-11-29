@@ -1,7 +1,7 @@
 import APIManager from "./APIManager"
 
 class TasksManager extends APIManager {
-  getAnimal(id) {
+  getTasks(id) {
     return this.get(id)
   }
   getAll() {
