@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import NewsList from "./news/NewsList";
 import NewsDetail from "./news/NewsDetail";
 import MessagesList from "./messages/MessagesList";
+import EventsList from "./events/EventsList";
 import NewsManager from "../managers/NewsManager";
 import EventsManager from "../managers/EventsManager";
 import MessagesManager from "../managers/MessagesManager";
@@ -69,7 +70,14 @@ class ApplicationViews extends Component {
       )
   }
 
-  render() {
+  deleteEvents = (id) => {
+    return EventsManager.removeAndList(id)
+      .then(events => this.setState({
+        events: events
+      }))
+  }
+
+  render() { 
     return (
       <React.Fragment>
         <Route
@@ -104,6 +112,14 @@ class ApplicationViews extends Component {
           }}
         />
         {/* <Route path="/login" component={Login} /> */}
+        <Route
+          exact
+          path="/events"
+          render={props => {
+            return <EventsList {...props} events={this.state.events} deleteEvents={this.deleteEvents} />;
+          }}
+        />
+
       </React.Fragment>
     );
   }
