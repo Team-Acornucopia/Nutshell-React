@@ -19,7 +19,7 @@ class APIManager {
   }
 
   delete(id) {
-    return fetch(`${remoteURL}/animals/${id}`, {
+    return fetch(`${remoteURL}/${this.route}/${id}`, {
         method: "DELETE"
       })
         .then(e => e.json())

@@ -81,7 +81,7 @@ export default class Login extends Component {
           placeholder="password"
           required=""
         />
-        <Button class="ui button" basic color="red" type="submit">Sign in</Button>
+        <Button className="ui button" basic color="red" type="submit">Sign in</Button>
         
       </form> 
     );
