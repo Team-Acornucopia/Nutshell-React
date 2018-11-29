@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 
 export default class MessagesList extends Component {
     render() {
+      console.log(this.props.messages)
         return (
             <React.Fragment>
                 {

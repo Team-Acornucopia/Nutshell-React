@@ -1,7 +1,8 @@
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import React, { Component } from "react";
 import NewsList from "./news/NewsList"
 import MessagesList from "./messages/MessagesList"
+import TasksList from "./tasks/TasksList"
 import NewsManager from "../managers/NewsManager";
 import EventsManager from "../managers/EventsManager";
 import MessagesManager from "../managers/MessagesManager";
@@ -14,6 +15,7 @@ class ApplicationViews extends Component {
   state = {
     messages: [],
     tasks: [],
+    taskItem: "",
     events: [],
     news: []
   };
@@ -51,12 +53,27 @@ class ApplicationViews extends Component {
     });
   }
 
-  showMessages = () => {
-    console.log(this.state.messages);
-  };
+addTask = (task) => TasksManager.post(task)
+.then(tasks => this.setState({
+  tasks: tasks
+})
+)
+
+deleteTask = (task) => TasksManager.removeAndList(task)
+.then(tasks => this.setState({
+  tasks: tasks
+  })
+)
+
+  setTaskItemState = (val) => {
+    this.setState({taskItem: val})
+  }
+  // showMessages = () => {
+  //   console.log(this.state.messages);
+  // };
 
   render() {
-    console.log(this.state.messages)
+    // console.log(this.state.messages)
     return (
         <React.Fragment>
           <Route exact path="/messages" render={(props) => {
@@ -67,6 +84,14 @@ class ApplicationViews extends Component {
           <Route exact path="/news" render={(props) => {
             return <NewsList {...props}
               news={this.state.news}
+            />
+          }} />
+           <Route exact path="/tasks" render={(props) => {
+            return <TasksList {...props}
+              tasks={this.state.tasks}
+              deleteTask={this.deleteTask}
+              addTask={this.addTask}
+              setTaskItemState={this.setTaskItemState}
             />
           }} />
         </React.Fragment>
