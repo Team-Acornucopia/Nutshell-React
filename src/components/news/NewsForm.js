@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Button } from 'semantic-ui-react'
 
-export default class NewsForms extends Component {
+export default class NewsForm extends Component {
     // Set initial state
     state = {
         title: "",
