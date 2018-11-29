@@ -78,6 +78,13 @@ class ApplicationViews extends Component {
       )
   }
 
+  addEvent = events => EventsManager.post(events)
+    .then(() => EventsManager.all())
+    .then(events => this.setState({
+      events: events
+    })
+    )
+
   deleteEvents = (id) => {
     return EventsManager.removeAndList(id)
       .then(events => this.setState({
