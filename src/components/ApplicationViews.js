@@ -78,6 +78,7 @@ class ApplicationViews extends Component {
   }
 
   render() { 
+    
     return (
       <React.Fragment>
         <Route
