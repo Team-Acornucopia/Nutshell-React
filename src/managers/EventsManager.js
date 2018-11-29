@@ -1,7 +1,7 @@
 import APIManager from "./APIManager"
 
 class EventsManager extends APIManager {
-  getAnimal(id) {
+  getEvents(id) {
     return this.get(id)
   }
   getAll() {

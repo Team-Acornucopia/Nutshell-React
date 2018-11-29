@@ -26,10 +26,11 @@ export default class NewsDetail extends Component {
             <section className="news details">
                 <div key={news.id} className="card">
                     <div className="card-body">
-                        <h3 className="card-title">
-                            <h4>Title: {news.title}</h4>
+                        <div className="card-title">
+                            <h1>Title: {news.title}</h1>
+                            <h2>URL: {news.url}</h2>
                             <p>Synopsis: {news.synopsis}</p>
-                        </h3>
+                        </div>
                         
                     </div>
                 </div>
