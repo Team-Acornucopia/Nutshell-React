@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button } from "semantic-ui-react"
 
 export default class Login extends Component {
   // Set initial state
@@ -80,7 +81,8 @@ export default class Login extends Component {
           placeholder="password"
           required=""
         />
-        <button type="submit">Sign in</button>
+        <Button class="ui button" basic color="red" type="submit">Sign in</Button>
+        
       </form> 
     );
   }
