@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Button, Card, Image, CardHeader } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
 
 export default class NewsCard extends Component {
@@ -24,17 +24,17 @@ export default class NewsCard extends Component {
     render() {
         return (
             <Card.Group>
-
                 <Card key={this.props.story.id} className="card">
                     <Card.Content className="card-body">
-                        <Card.Header className="card-title">
-                            <Card.Meta>Title: {this.props.story.title}</Card.Meta>
+                        <h5 className="card-title">
+                            <Card.Header>Title: {this.props.story.title}</Card.Header>
+                            <Card.Header a href={`${this.props.story.url}`}>Link to This Article</Card.Header>
                             <Card.Description>Synopsis: {this.props.story.synopsis}</Card.Description>
                             <Link className="nav-link" to={`/news/${this.props.story.id}`}>Details</Link>
                             <Button color="red"
                                 onClick={() => this.props.deleteArticle(this.props.story.id)}
                                 className="card-link">Delete</Button>
-                        </Card.Header>
+                        </h5>
                     </Card.Content>
                 </Card>
             </Card.Group>

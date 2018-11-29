@@ -2,6 +2,7 @@ import { Route, Redirect } from "react-router-dom";
 import React, { Component } from "react";
 import NewsList from "./news/NewsList";
 import NewsDetail from "./news/NewsDetail";
+import NewsForm from "./news/NewsForm";
 import MessagesList from "./messages/MessagesList";
 import EventsList from "./events/EventsList";
 import NewsManager from "../managers/NewsManager";
@@ -62,6 +63,13 @@ class ApplicationViews extends Component {
     });
   }
 
+  addArticle = news => NewsManager.post(news)
+    .then(() => NewsManager.all())
+    .then(news => this.setState({
+      news: news
+    })
+    )
+
   deleteArticle = (id) => {
     return NewsManager.removeAndList(id)
       .then(news => this.setState({
@@ -81,22 +89,16 @@ class ApplicationViews extends Component {
     
     return (
       <React.Fragment>
-        <Route
-          exact
-          path="/messages"
-          render={props => {
-            return <MessagesList {...props} messages={this.state.messages} />;
-          }}
+        <Route exact path="/messages" render={props => {
+          return <MessagesList {...props} messages={this.state.messages} />;
+        }}
         />
-        <Route
-          exact
-          path="/news"
-          render={props => {
-            return <NewsList {...props}
-              news={this.state.news}
-              deleteArticle={this.deleteArticle}
-            />
-          }}
+        <Route exact path="/news" render={props => {
+          return <NewsList {...props}
+            news={this.state.news}
+            deleteArticle={this.deleteArticle}
+          />
+        }}
         />
         <Route path="/news/:newsId(\d+)" render={(props) => {
           return <NewsDetail
@@ -105,12 +107,14 @@ class ApplicationViews extends Component {
             deleteArticle={this.deleteArticle}
           />
         }} />
-        <Route
-          exact
-          path="/login"
-          render={props => {
-            return <Login {...props} users={this.state.users} />;
-          }}
+        <Route exact path="/news/new" render={(props) => {
+          return <NewsForm {...props}
+            addArticle={this.addArticle}
+          />
+        }} />
+        <Route exact path="/login" render={props => {
+          return <Login {...props} users={this.state.users} />;
+        }}
         />
         {/* <Route path="/login" component={Login} /> */}
         <Route

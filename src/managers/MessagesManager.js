@@ -1,7 +1,7 @@
 import APIManager from "./APIManager"
 
 class MessagesManager extends APIManager {
-  getAnimal(id) {
+  getMessages(id) {
     return this.get(id)
   }
   getAll() {
