@@ -5,7 +5,7 @@ class MessagesManager extends APIManager {
     return this.get(id)
   }
   getAll() {
-    return this.all()
+    return this.allSortedSoonest()
   }
   removeAndList(id) {
     return this.delete(id).then(() => this.all())
