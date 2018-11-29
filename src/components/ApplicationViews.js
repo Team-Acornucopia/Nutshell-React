@@ -1,6 +1,7 @@
 import { Route, Redirect } from "react-router-dom";
 import React, { Component } from "react";
 import NewsList from "./news/NewsList";
+import NewsDetail from "./news/NewsDetail";
 import MessagesList from "./messages/MessagesList";
 import NewsManager from "../managers/NewsManager";
 import EventsManager from "../managers/EventsManager";
@@ -60,8 +61,15 @@ class ApplicationViews extends Component {
     });
   }
 
+  deleteArticle = (id) => {
+    return NewsManager.removeAndList(id)
+      .then(news => this.setState({
+        news: news
+      })
+      )
+  }
+
   render() {
-    console.log(this.state.users);
     return (
       <React.Fragment>
         <Route
@@ -75,9 +83,19 @@ class ApplicationViews extends Component {
           exact
           path="/news"
           render={props => {
-            return <NewsList {...props} news={this.state.news} />;
+            return <NewsList {...props}
+              news={this.state.news}
+              deleteArticle={this.deleteArticle}
+            />
           }}
         />
+        <Route path="/news/:newsId(\d+)" render={(props) => {
+          return <NewsDetail
+            {...props}
+            news={this.state.news}
+            deleteArticle={this.deleteArticle}
+          />
+        }} />
         <Route
           exact
           path="/login"
