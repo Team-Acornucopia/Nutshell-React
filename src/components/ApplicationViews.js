@@ -78,6 +78,7 @@ class ApplicationViews extends Component {
   }
 
   render() {
+    // console.log(this.state.users);
     return (
       <React.Fragment>
         <Route exact path="/messages" render={props => {

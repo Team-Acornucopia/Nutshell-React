@@ -1,9 +1,9 @@
-const remoteURL = "http://localhost:5002"
+const remoteURL = "http://localhost:5002";
 
 class APIManager {
-    constructor(route) {
-        this.route = route
-    }
+  constructor(route) {
+    this.route = route;
+  }
 
   get(id) {
     /*
@@ -11,11 +11,11 @@ class APIManager {
         all of the more specialized one, then the string
         of `animals` should not be hard coded here.
     */
-   return fetch(`${remoteURL}/${this.route}/${id}`).then(e => e.json())
+    return fetch(`${remoteURL}/${this.route}/${id}`).then(e => e.json());
   }
 
   all() {
-    return fetch(`${remoteURL}/${this.route}`).then(data => data.json())
+    return fetch(`${remoteURL}/${this.route}`).then(data => data.json());
   }
 
   delete(id) {
@@ -34,8 +34,8 @@ class APIManager {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(payload)
-    }).then(data => data.json())
+    }).then(data => data.json());
   }
 }
 
-export default APIManager
+export default APIManager;
