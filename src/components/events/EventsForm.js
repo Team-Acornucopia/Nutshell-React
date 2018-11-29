@@ -1,14 +1,13 @@
 import React, { Component } from "react"
 import { Button } from 'semantic-ui-react'
 
-export default class NewsForm extends Component {
+export default class EventsForm extends Component {
     // Set initial state
     state = {
-        title: "",
-        synopsis: "",
-        url: "",
-        date: ""
-        // employee: ""
+        name: "",
+        date: "",
+        time: "",
+        location: ""
     }
 
     // Update state whenever an input field is edited
@@ -18,16 +17,16 @@ export default class NewsForm extends Component {
         this.setState(stateToChange)
     }
 
-    constructNewArticle = evt => {
+    constructNewEvent = evt => {
         evt.preventDefault()
         // if (this.state.employee === "") {
         //     window.alert("Please select a caretaker")
         // } else {
-            const news = {
-                title: this.state.title,
-                synopsis: this.state.synopsis,
-                url: this.state.url,
-                date: this.state.date
+            const events = {
+                name: this.state.name,
+                date: this.state.date,
+                time: this.state.time,
+                location: this.state.location
                 // employeeId: this.props.employees.find(e => e.name === this.state.employee).id
             // }
 
@@ -79,7 +78,7 @@ export default class NewsForm extends Component {
                         }
                         </select>
                     </div> */}
-                    <Button type="submit" onClick={this.constructNewArticle} className="btn btn-primary">Submit</Button>
+                    <Button type="submit" onClick={this.constructNewEvent} className="btn btn-primary">Submit</Button>
                 </form>
             </React.Fragment>
         )
