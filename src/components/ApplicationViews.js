@@ -61,7 +61,7 @@ class ApplicationViews extends Component {
   }
 
   render() {
-    console.log(this.state.users);
+    // console.log(this.state.users);
     return (
       <React.Fragment>
         <Route
