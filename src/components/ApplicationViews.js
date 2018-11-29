@@ -7,6 +7,8 @@ import NewsManager from "../managers/NewsManager";
 import EventsManager from "../managers/EventsManager";
 import MessagesManager from "../managers/MessagesManager";
 import TasksManager from "../managers/TasksManager";
+import Login from "./authentication/Login";
+import UserManager from "../managers/UserManager";
 
 class ApplicationViews extends Component {
   // Check if credentials are in local storage
@@ -21,7 +23,8 @@ class ApplicationViews extends Component {
     tasks: [],
     taskItem: "",
     events: [],
-    news: []
+    news: [],
+    users: []
   };
 
   componentDidMount() {
@@ -55,8 +58,13 @@ class ApplicationViews extends Component {
         messages: allMessages
       });
     });
-  }
 
+    UserManager.getAll().then(allUsers => {
+      this.setState({
+        users: allUsers
+      });
+    });
+  }
 
 //This function is not working, its currently being used in TaskForm
 addTask = (task) => TasksManager.post(task)
@@ -84,24 +92,26 @@ deleteTask = (task) => TasksManager.removeAndList(task)
   //   console.log(this.state.messages);
   // };
 
-
-
   //I added a new route for TasksList.
-  render() {
-    // console.log(this.state.messages)
+render() {
+    console.log(this.state.users);
     return (
-        <React.Fragment>
-          <Route exact path="/messages" render={(props) => {
-            return <MessagesList {...props}
-              messages={this.state.messages}
-            />
-          }} />
-          <Route exact path="/news" render={(props) => {
-            return <NewsList {...props}
-              news={this.state.news}
-            />
-          }} />
-           <Route exact path="/tasks" render={(props) => {
+      <React.Fragment>
+        <Route
+          exact
+          path="/messages"
+          render={props => {
+            return <MessagesList {...props} messages={this.state.messages} />;
+          }}
+        />
+        <Route
+          exact
+          path="/news"
+          render={props => {
+            return <NewsList {...props} news={this.state.news} />;
+          }}
+        />
+            <Route exact path="/tasks" render={(props) => {
             return <TasksList {...props}
               tasks={this.state.tasks}
               deleteTask={this.deleteTask}
@@ -109,7 +119,15 @@ deleteTask = (task) => TasksManager.removeAndList(task)
               setTaskItemState={this.setTaskItemState}
             />
           }} />
-        </React.Fragment>
+        <Route
+          exact
+          path="/login"
+          render={props => {
+            return <Login {...props} users={this.state.users} />;
+          }}
+        />
+        {/* <Route path="/login" component={Login} /> */}
+      </React.Fragment>
     );
   }
 }
