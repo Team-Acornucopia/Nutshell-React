@@ -18,6 +18,14 @@ class APIManager {
     return fetch(`${remoteURL}/${this.route}`).then(data => data.json());
   }
 
+  allSortedSoonest() {
+    return fetch(`${remoteURL}/${this.route}?_sort=date&_order=asc`).then(data => data.json());
+  }
+
+  allSortedFurthest() {
+    return fetch(`${remoteURL}/${this.route}?_sort=date&_order=desc`).then(data => data.json());
+  }
+
   delete(id) {
     return fetch(`${remoteURL}/${this.route}/${id}`, {
         method: "DELETE"
