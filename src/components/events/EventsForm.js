@@ -7,7 +7,8 @@ export default class EventsForm extends Component {
     name: "",
     date: "",
     time: "",
-    location: ""
+    location: "",
+    userId: ""
   };
 
   // Update state whenever an input field is edited
@@ -23,7 +24,8 @@ export default class EventsForm extends Component {
       name: this.state.name,
       date: this.state.date,
       time: this.state.time,
-      location: this.state.location
+      location: this.state.location,
+      userId: sessionStorage.getItem(“username”)
     };
     this.props.addEvent(events).then(() => this.props.history.push("/events"));
   };
