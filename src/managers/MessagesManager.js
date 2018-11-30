@@ -10,14 +10,8 @@ class MessagesManager extends APIManager {
   removeAndList(id) {
     return this.delete(id).then(() => this.all())
   }
-  post(newMessage) {
-    return fetch("http://localhost:5002/messages", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newMessage)
-    }).then(data => data.json())
+  addAndList(newMessage) {
+      return this.post(newMessage).then(() => this.all())
   }
 }
 

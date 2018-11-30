@@ -45,15 +45,6 @@ class APIManager {
     }).then(data => data.json())
   }
 
-  post(payload) {
-    return fetch(`${remoteURL}/${this.route}/`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(payload)
-    }).then(data => data.json())
-  }
 }
 
 export default APIManager

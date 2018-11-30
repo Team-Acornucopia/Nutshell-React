@@ -5,6 +5,8 @@ import NewsList from "./news/NewsList";
 import NewsDetail from "./news/NewsDetail";
 import NewsForm from "./news/NewsForm";
 import MessagesList from "./messages/MessagesList";
+import MessagesForm from "./messages/MessagesForm";
+// import MessagesDetail from "./messages/MessagesDetail";
 import EventsList from "./events/EventsList";
 import EventsForm from "./events/EventsForm";
 import NewsManager from "../managers/NewsManager";
@@ -108,13 +110,30 @@ class ApplicationViews extends Component {
 
 
   addArticle = news =>
-    NewsManager.post(news)
+    NewsManager.addAndList(news)
       .then(() => NewsManager.all())
       .then(news =>
         this.setState({
           news: news
         })
       );
+
+  addMessage = messages =>
+    MessagesManager.addAndList(messages)
+      .then(() => MessagesManager.all())
+      .then(messages =>
+        this.setState({
+          messages: messages
+        })
+      );
+
+  deleteMessage = id => {
+    return NewsManager.removeAndList(id).then(news =>
+      this.setState({
+        news: news
+      })
+    );
+  };
 
   deleteArticle = id => {
     return NewsManager.removeAndList(id).then(news =>
@@ -125,7 +144,7 @@ class ApplicationViews extends Component {
   };
 
   addEvent = events =>
-    EventsManager.post(events)
+    EventsManager.addAndList(events)
       .then(() => EventsManager.all())
       .then(events =>
         this.setState({
@@ -145,10 +164,17 @@ class ApplicationViews extends Component {
     return (
       <React.Fragment>
         <Route exact path="/messages" render={props => {
-            return <MessagesList {...props} 
-            messages={this.state.messages} 
-            />;
-          }}
+          return <MessagesList {...props}
+            messages={this.state.messages}
+            deleteMessage={this.deleteMessage}
+          />;
+        }}
+        />
+        <Route exact path="/messages/new" render={props => {
+          return <MessagesForm {...props}
+            addMessage={this.addMessage}
+          />
+        }}
         />
         <Route exact path="/tasks" render={(props) => {
           return <TasksList {...props}
@@ -160,28 +186,28 @@ class ApplicationViews extends Component {
           // setTaskItemState={this.setTaskItemState}
           />
         }} />
-        <Route path="/news" render={(props) => {
+        <Route exact path="/news" render={(props) => {
           return <NewsList {...props}
             news={this.state.news}
             deleteArticle={this.deleteArticle}
           />
         }} />
         <Route path="/news/:newsId(\d+)" render={(props) => {
-            return <NewsDetail {...props}
-                news={this.state.news}
-                deleteArticle={this.deleteArticle}
-              />
-          }} />
+          return <NewsDetail {...props}
+            news={this.state.news}
+            deleteArticle={this.deleteArticle}
+          />
+        }} />
         <Route exact path="/news/new" render={props => {
-            return <NewsForm {...props} 
-            addArticle={this.addArticle} 
-            />
-          }}
+          return <NewsForm {...props}
+            addArticle={this.addArticle}
+          />
+        }}
         />
         <Route exact path="/login" render={props => {
-            return <Login {...props} 
+          return <Login {...props}
             users={this.state.users} />;
-          }}
+        }}
         />
         <Route exact path="/register" render={props => {
             return <Register {...props} 
