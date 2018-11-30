@@ -21,14 +21,9 @@ class ApplicationViews extends Component {
   // Check if credentials are in local storage
   // isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
 
-
-  //I added the taskItem property to the state, this doesnt affect the
-  //TaskList, its actually supposed to be for the TaskForm which is not working at the moment.
-  //Even though its there its not supposed to break anything.
   state = {
     messages: [],
     tasks: [],
-    // taskItem: "",
     events: [],
     news: [],
     users: []
@@ -210,7 +205,7 @@ class ApplicationViews extends Component {
         }}
         />
         <Route exact path="/register" render={props => {
-            return <Register {...props} 
+            return <Register {...props}
             users={this.state.users} />;
           }}
         />

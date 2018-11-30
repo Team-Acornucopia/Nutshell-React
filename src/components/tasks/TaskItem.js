@@ -5,23 +5,10 @@ import './TaskItem.css'
 
 export default class TaskItem extends Component {
 
-
-  state = {
-    checkbox: false,
-    editButton: ""
-  }
-
-  // componentDidMount() {
-  //   this.setState({ checkbox: this.props.thing.completed })
-  // }
-
-  handleFieldChange = evt => {
-    const stateToChange = {}
-    stateToChange[evt.target.id] = evt.target.value
-    this.setState(stateToChange)
-  }
-
-
+state = {
+  editButton: "",
+  completed: ""
+}
 
   // handleFieldChangeReact = (event) => {
   // const checkedBox = {}
@@ -31,10 +18,38 @@ export default class TaskItem extends Component {
   //   this.setState(checkedBox)
   // }
   // }
-  changeCompleted = () => {
 
-    this.editTask(this.props.thing.id)
+
+  // changeCompleted = () => {
+
+  //   this.editTask(this.props.thing.id)
+  // }
+
+  //#1
+//This function changes the state above, it gets the id of the target, which is the id of the button itself
+//this id has to be the same as the state name above. It also get the value of what has been written, and
+//sticks that into the stateToChange object, then it sets the state above as the stateToChange.
+  handleFieldChange = evt => {
+    console.log(evt.target.value)
+    const stateToChange = {}
+    stateToChange[evt.target.id] = evt.target.value
+    this.setState(stateToChange)
   }
+
+  //#2
+//This function constructs a new edited Task.
+constructEditedTask = () => {
+  //This is the new object that will be patched into the database.
+  const newTask = {
+    task: this.state.editButton,
+    // date: this.props.state.taskDate,
+    completed: false
+  }
+  //This goes back to application views where it gets the editTask function.
+  //the this.props.thing.id looks at the key
+  this.props.editTask(newTask, this.props.thing.id)
+}
+
 
 
   handlecheckBoxChange = () => {
@@ -76,40 +91,40 @@ export default class TaskItem extends Component {
   // }
 
   //changes property of completed on click to either flase or true
-  changeCompleted = (id) => {
+  // changeCompleted = (id) => {
 
-    this.props.thing.map((task) => {
+  //   this.props.thing.map((task) => {
 
-      let currentTask = task.completed
+  //     let currentTask = task.completed
 
-      let updatedTask = (newCompleted) => {
-        // const newTaskStatus = true
-        if (currentTask) {
-          const newCompleted = {
-            completed: false
-          }
-        }
-        else {
-          const newCompleted = {
-            completed: true
-          }
-        }
-      }
-      this.props.editTask(updatedTask, id)
-    })
-  }
+  //     let updatedTask = (newCompleted) => {
+  //       // const newTaskStatus = true
+  //       if (currentTask) {
+  //         const newCompleted = {
+  //           completed: false
+  //         }
+  //       }
+  //       else {
+  //         const newCompleted = {
+  //           completed: true
+  //         }
+  //       }
+  //     }
+  //     this.props.editTask(updatedTask, id)
+  //   })
+  // }
 
 //original only changes to whatever is specified below
-  changeCompleted = (id) => {
+  // changeCompleted = (id) => {
 
-    let updatedTask =
-    {
-      completed: false
-    }
+  //   let updatedTask =
+  //   {
+  //     completed: false
+  //   }
 
 
-    this.props.editTask(updatedTask, id)
-  }
+  //   this.props.editTask(updatedTask, id)
+  // }
 
   //This render is exactly the same as the one in the todo exercise.
   render() {
@@ -117,10 +132,9 @@ export default class TaskItem extends Component {
 
     return (<li id={this.props.itemId}
       key={this.props.thing.id}>{this.props.thing.task}
-      <button id={this.props.thing.id}>Edit</button>
-      <input type="text" placeholder="Edit this task"></input>
-
-
+      <button id={this.props.editButton_itemId}>Edit</button>
+      <input id="editButton" type="text" placeholder="Edit task" onChange={this.handleFieldChange}></input>
+      <button onClick={this.constructEditedTask}>Submit Edit</button>
       <button className="unchecked" onClick={() => { this.changeCompleted(this.props.thing.id) }} type="checkbox" ></button>
       <button className="" onClick={() => {
         // console.log("item button2")
