@@ -28,6 +28,11 @@ export default class Login extends Component {
     this.refs.newPassField.value = "";
   };
 
+  // clearFields using getElementById
+  clearFields2 = e => {
+    this.signIn.reset();
+  };
+
   // zac's login function
   verifyUser = event => {
     event.preventDefault();
@@ -51,7 +56,7 @@ export default class Login extends Component {
     }
     // tell the user the result of the test
     console.log(testResult);
-    this.clearFields();
+    // this.clearFields2();
   };
 
   // zac's logout function
@@ -61,43 +66,11 @@ export default class Login extends Component {
     sessionStorage.clear();
   };
 
-  // zac's registration function
-  registerUser = event => {
-    event.preventDefault();
-    // check database to see if user exists
-    let verified = true;
-    let message = "";
-    for (let i = 0; i < this.props.users.length; i++) {
-      // this checks if user already exists
-      if (this.props.users[i].username.indexOf(this.state.username) !== -1) {
-        message = "Username already exists, please try logging in.";
-        verified = false;
-        break;
-      } else {
-        verified = true;
-      }
-    }
-    // if user was not in database, allow registration
-    if (verified) {
-      message = "New user saved. Please log in.";
-
-      // create an object to be saved to database
-      let toSave = {
-        username: this.state.username,
-        password: this.state.password
-      };
-
-      // post them to the database (object is stringified in UserManager)
-      UserManager.post(toSave);
-    }
-    console.log(message);
-  };
-
   render() {
     return (
       // leaving in this basic form for now, but we can refactor with multiple semantic UI forms if we have enough time
       <React.Fragment>
-        <form onSubmit={this.verifyUser}>
+        <form ref="signIn" onSubmit={this.verifyUser}>
           <h1 className="">Please sign in</h1>
           <label htmlFor="inputUsername">Username</label>
           <Form.Input
@@ -107,7 +80,7 @@ export default class Login extends Component {
             placeholder="username"
             required=""
             autoFocus=""
-            ref="userField"
+            // ref="userField"
           />
           <label htmlFor="inputPassword">Password</label>
           <Form.Input
@@ -116,44 +89,13 @@ export default class Login extends Component {
             id="password"
             placeholder="password"
             required=""
-            ref="passField"
+            // ref="passField"
           />
 
           <Button basic color="purple" type="submit">
             Sign in
           </Button>
         </form>
-        <form onSubmit={this.registerUser}>
-          <h1 className="h3 mb-3 font-weight-normal list">
-            New user registration
-          </h1>
-          <label htmlFor="newUsername">Username</label>
-          <Form.Input
-            onChange={this.handleFieldChange}
-            type="text"
-            id="username"
-            placeholder="desired username"
-            required=""
-            autoFocus=""
-            ref="newUserField"
-          />
-          <label htmlFor="newPassword">Password</label>
-          <Form.Input
-            onChange={this.handleFieldChange}
-            type="password"
-            id="password"
-            placeholder="desired password"
-            required=""
-            ref="newPassField"
-          />
-          <Button basic color="green" type="submit">
-            Register
-          </Button>
-        </form>
-        <br></br>
-        <Button onClick={this.logout} basic color="red" type="">
-          Log out
-        </Button>
       </React.Fragment>
     );
   }

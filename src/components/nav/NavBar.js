@@ -1,11 +1,15 @@
 import React, { Component } from "react";
-import { Menu } from "semantic-ui-react";
+import { Menu, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 export default class MenuExampleHeader extends Component {
   state = {};
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+
+  logout = () => {
+    sessionStorage.clear();
+  };
 
   render() {
     const { activeItem } = this.state;
@@ -47,16 +51,28 @@ export default class MenuExampleHeader extends Component {
           active={activeItem === "messages"}
           onClick={this.handleItemClick}
         />
-        <Menu.Item
-          as={Link}
-          to="/login"
-          position="right"
-          name="login"
-          active={activeItem === "login"}
-          onClick={this.handleItemClick}
-        />
-        {/* <Menu.Item as={NavLink} to='/home' /> */}
-        {/* <Menu.Item as={NavLink} to="/messages" content="Messages"/> */}
+        <Menu.Menu position="right">
+          <Menu.Item
+            as={Link}
+            to="/login"   
+            name="login"
+            active={activeItem === "login"}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
+            as={Link}
+            to="/register"
+            name="register"
+            active={activeItem === "register"}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item 
+            as={Link}
+            to="/home"
+            name="logout"
+            onClick={this.logout}
+          />
+        </Menu.Menu>
       </Menu>
     );
   }
