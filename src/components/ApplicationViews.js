@@ -128,7 +128,7 @@ class ApplicationViews extends Component {
       );
 
   deleteMessage = id => {
-    return NewsManager.removeAndList(id).then(news =>
+    return MessagesManager.removeAndList(id).then(news =>
       this.setState({
         news: news
       })
