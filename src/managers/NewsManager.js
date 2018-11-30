@@ -10,14 +10,8 @@ class NewsManager extends APIManager {
   removeAndList(id) {
     return this.delete(id).then(() => this.all())
   }
-  post(newArticle) {
-    return fetch("http://localhost:5002/news", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newArticle)
-    }).then(data => data.json())
+  addAndList(newMessage) {
+      return this.post(newMessage).then(() => this.all())
   }
 }
 

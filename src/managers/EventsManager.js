@@ -10,14 +10,8 @@ class EventsManager extends APIManager {
   removeAndList(id) {
     return this.delete(id).then(() => this.all())
   }
-  post(newEvent) {
-    return fetch("http://localhost:5002/events", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newEvent)
-    }).then(data => data.json())
+  addAndList(newMessage) {
+      return this.post(newMessage).then(() => this.all())
   }
 }
 
