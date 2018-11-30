@@ -158,15 +158,13 @@ class ApplicationViews extends Component {
           />
         }} />
         <Route path="/news" render={(props) => {
-          return <NewsList
-            {...props}
+          return <NewsList {...props}
             news={this.state.news}
             deleteArticle={this.deleteArticle}
           />
         }} />
         <Route path="/news/:newsId(\d+)" render={(props) => {
-            return <NewsDetail
-                {...props}
+            return <NewsDetail {...props}
                 news={this.state.news}
                 deleteArticle={this.deleteArticle}
               />
