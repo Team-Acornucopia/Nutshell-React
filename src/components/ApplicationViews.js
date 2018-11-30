@@ -13,6 +13,7 @@ import MessagesManager from "../managers/MessagesManager";
 import TasksManager from "../managers/TasksManager";
 import Login from "./authentication/Login";
 import UserManager from "../managers/UserManager";
+import Register from "./authentication/Register"
 
 class ApplicationViews extends Component {
   // Check if credentials are in local storage
@@ -182,7 +183,11 @@ class ApplicationViews extends Component {
             users={this.state.users} />;
           }}
         />
-        {/* <Route path="/login" component={Login} /> */}
+        <Route exact path="/register" render={props => {
+            return <Register {...props} 
+            users={this.state.users} />;
+          }}
+        />
         <Route
           exact
           path="/events"
