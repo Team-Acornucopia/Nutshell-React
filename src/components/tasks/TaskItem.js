@@ -6,14 +6,20 @@ import './TaskItem.css'
 export default class TaskItem extends Component {
 
 
-  // state = {
-  //   checkbox: false
-  // }
+  state = {
+    checkbox: false,
+    editButton: ""
+  }
 
   // componentDidMount() {
   //   this.setState({ checkbox: this.props.thing.completed })
   // }
 
+  handleFieldChange = evt => {
+    const stateToChange = {}
+    stateToChange[evt.target.id] = evt.target.value
+    this.setState(stateToChange)
+  }
 
 
 
@@ -111,7 +117,8 @@ export default class TaskItem extends Component {
 
     return (<li id={this.props.itemId}
       key={this.props.thing.id}>{this.props.thing.task}
-      <button id={this.props.editButton_itemId}>Edit</button>
+      <button id={this.props.thing.id}>Edit</button>
+      <input type="text" placeholder="Edit this task"></input>
 
 
       <button className="unchecked" onClick={() => { this.changeCompleted(this.props.thing.id) }} type="checkbox" ></button>
