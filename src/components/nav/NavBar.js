@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Menu } from "semantic-ui-react";
-// import Link from "react-router-dom";
-// import browserHistory from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class MenuExampleHeader extends Component {
   state = {};
@@ -14,32 +13,43 @@ export default class MenuExampleHeader extends Component {
     return (
       <Menu pointing>
         <Menu.Item
+          as={Link}
+          to="/"
           name="home"
           active={activeItem === "home"}
           onClick={this.handleItemClick}
         />
         <Menu.Item
+          as={Link}
+          to="/events"
           name="events"
           active={activeItem === "events"}
-          //   onClick={this.handleItemClick}
+          onClick={this.handleItemClick}
         />
         <Menu.Item
+          as={Link}
+          to="/news"
           name="news"
           active={activeItem === "news"}
           onClick={this.handleItemClick}
         />
         <Menu.Item
+          as={Link}
+          to="/tasks"
           name="tasks"
           active={activeItem === "tasks"}
           onClick={this.handleItemClick}
         />
         <Menu.Item
+          as={Link}
           to="/messages"
           name="messages"
           active={activeItem === "messages"}
           onClick={this.handleItemClick}
         />
         <Menu.Item
+          as={Link}
+          to="/login"
           position="right"
           name="login"
           active={activeItem === "login"}
