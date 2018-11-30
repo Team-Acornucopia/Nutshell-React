@@ -33,14 +33,14 @@ export default class EventsForm extends Component {
       <div>
         <form className="EventsForm">
           <div className="form-group">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Event Name</label>
             <input
               type="text"
               required
               className="form-control"
               onChange={this.handleFieldChange}
               id="name"
-              placeholder="name" />
+              placeholder="name of event" />
           </div>
           <div className="form-group">
             <label htmlFor="date">Date</label>
