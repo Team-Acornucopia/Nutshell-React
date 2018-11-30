@@ -1,9 +1,12 @@
 import { Route } from "react-router-dom";
 import React, { Component } from "react";
-import NewsDetail from "./news/NewsDetail"
-import NewsList from "./news/NewsList"
-import MessagesList from "./messages/MessagesList"
-import TasksList from "./tasks/TasksList"
+import TasksList from "./tasks/TasksList";
+import NewsList from "./news/NewsList";
+import NewsDetail from "./news/NewsDetail";
+import NewsForm from "./news/NewsForm";
+import MessagesList from "./messages/MessagesList";
+import EventsList from "./events/EventsList";
+import EventsForm from "./events/EventsForm";
 import NewsManager from "../managers/NewsManager";
 import EventsManager from "../managers/EventsManager";
 import MessagesManager from "../managers/MessagesManager";
@@ -102,16 +105,42 @@ class ApplicationViews extends Component {
 
   //I added a new route for TasksList.
 
-  deleteArticle = (id) => {
-    return NewsManager.removeAndList(id)
-      .then(news => this.setState({
+
+  addArticle = news =>
+    NewsManager.post(news)
+      .then(() => NewsManager.all())
+      .then(news =>
+        this.setState({
+          news: news
+        })
+      );
+
+  deleteArticle = id => {
+    return NewsManager.removeAndList(id).then(news =>
+      this.setState({
         news: news
       })
-      )
-  }
+    );
+  };
+
+  addEvent = events =>
+    EventsManager.post(events)
+      .then(() => EventsManager.all())
+      .then(events =>
+        this.setState({
+          events: events
+        })
+      );
+
+  deleteEvents = id => {
+    return EventsManager.removeAndList(id).then(events =>
+      this.setState({
+        events: events
+      })
+    );
+  };
 
   render() {
-    // console.log(this.state.users);
     return (
       <React.Fragment>
         <Route
@@ -119,16 +148,6 @@ class ApplicationViews extends Component {
           path="/messages"
           render={props => {
             return <MessagesList {...props} messages={this.state.messages} />;
-          }}
-        />
-        <Route
-          exact
-          path="/news"
-          render={props => {
-            return <NewsList {...props}
-              news={this.state.news}
-              deleteArticle={this.deleteArticle}
-            />
           }}
         />
         <Route exact path="/tasks" render={(props) => {
@@ -139,7 +158,7 @@ class ApplicationViews extends Component {
             editTask={this.editTask}
             addTask={this.addTask}
           // setTaskItemState={this.setTaskItemState}
-          />
+          />;
         }} />
         <Route path="/news/:newsId(\d+)" render={(props) => {
           return <NewsDetail
@@ -148,6 +167,34 @@ class ApplicationViews extends Component {
             deleteArticle={this.deleteArticle}
           />
         }} />
+            return (
+              <NewsList
+                {...props}
+                news={this.state.news}
+                deleteArticle={this.deleteArticle}
+              />
+            );
+          }}
+        />
+        <Route
+          path="/news/:newsId(\d+)"
+          render={props => {
+            return (
+              <NewsDetail
+                {...props}
+                news={this.state.news}
+                deleteArticle={this.deleteArticle}
+              />
+            );
+          }}
+        />
+        <Route
+          exact
+          path="/news/new"
+          render={props => {
+            return <NewsForm {...props} addArticle={this.addArticle} />;
+          }}
+        />
         <Route
           exact
           path="/login"
@@ -156,6 +203,23 @@ class ApplicationViews extends Component {
           }}
         />
         {/* <Route path="/login" component={Login} /> */}
+        <Route
+          exact
+          path="/events"
+          render={props => {
+            return <EventsList
+                {...props}
+                events={this.state.events}
+                deleteEvents={this.deleteEvents} />;
+          }}
+        />
+        <Route
+          exact
+          path="/events/new"
+          render={props => {
+            return <EventsForm {...props} addEvent={this.addEvent} />;
+          }}
+        />
       </React.Fragment>
     );
   }
