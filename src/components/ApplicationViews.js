@@ -1,5 +1,6 @@
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import React, { Component } from "react";
+import TasksList from "./tasks/TasksList";
 import NewsList from "./news/NewsList";
 import NewsDetail from "./news/NewsDetail";
 import NewsForm from "./news/NewsForm";
@@ -17,9 +18,14 @@ class ApplicationViews extends Component {
   // Check if credentials are in local storage
   // isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
 
+
+  //I added the taskItem property to the state, this doesnt affect the
+  //TaskList, its actually supposed to be for the TaskForm which is not working at the moment.
+  //Even though its there its not supposed to break anything.
   state = {
     messages: [],
     tasks: [],
+    // taskItem: "",
     events: [],
     news: [],
     users: []
@@ -63,6 +69,42 @@ class ApplicationViews extends Component {
       });
     });
   }
+
+
+    addTask = (newTask) => TasksManager.postAndList(newTask)
+    .then(() => {
+      return TasksManager.getAll()
+    })
+    .then(allTasks => {
+      // console.log(allTasks)
+      this.setState({
+        tasks: allTasks
+      })
+    })
+
+
+  editTask = (task, id) => TasksManager.patchAndList(task, id)
+    .then(tasks => this.setState({
+      tasks: tasks
+    })
+    )
+
+
+  //This deleteTask function is working, its being invoqued in the
+  //TaskItem component
+  deleteTask = (task) => TasksManager.removeAndList(task)
+    .then(tasks => this.setState({
+      tasks: tasks
+    })
+    )
+
+
+  // showMessages = () => {
+  //   console.log(this.state.messages);
+  // };
+
+  //I added a new route for TasksList.
+
 
   addArticle = news =>
     NewsManager.post(news)
@@ -108,10 +150,23 @@ class ApplicationViews extends Component {
             return <MessagesList {...props} messages={this.state.messages} />;
           }}
         />
-        <Route
-          exact
-          path="/news"
-          render={props => {
+        <Route exact path="/tasks" render={(props) => {
+          return <TasksList {...props}
+            // taskItem={this.state.taskItem}
+            tasks={this.state.tasks}
+            deleteTask={this.deleteTask}
+            editTask={this.editTask}
+            addTask={this.addTask}
+          // setTaskItemState={this.setTaskItemState}
+          />;
+        }} />
+        <Route path="/news/:newsId(\d+)" render={(props) => {
+          return <NewsDetail
+            {...props}
+            news={this.state.news}
+            deleteArticle={this.deleteArticle}
+          />
+        }} />
             return (
               <NewsList
                 {...props}
@@ -152,13 +207,10 @@ class ApplicationViews extends Component {
           exact
           path="/events"
           render={props => {
-            return (
-              <EventsList
+            return <EventsList
                 {...props}
                 events={this.state.events}
-                deleteEvents={this.deleteEvents}
-              />
-            );
+                deleteEvents={this.deleteEvents} />;
           }}
         />
         <Route

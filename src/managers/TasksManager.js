@@ -9,15 +9,24 @@ class TasksManager extends APIManager {
   removeAndList(id) {
     return this.delete(id).then(() => this.all())
   }
-  post(newTask) {
-    return fetch("http://localhost:5002/tasks", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newTask)
-    }).then(data => data.json())
+
+  postAndList(newtask) {
+    return this.post(newtask).then(() => this.all())
   }
+
+  patchAndList(updatedTask, id) {
+    return this.patch(updatedTask, id).then(() => this.all())
+  }
+
+  // post(newTask) {
+  //   return fetch("http://localhost:5002/tasks", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify(newTask)
+  //   }).then(data => data.json())
+  // }
 }
 
 export default new TasksManager("tasks")
