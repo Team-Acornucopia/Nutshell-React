@@ -234,20 +234,6 @@
       "date": "11/14/2018",
       "userId": "zac",
       "id": 13
-    },
-    {
-      "title": "pppp",
-      "synopsis": "pp",
-      "url": "http://www.pppp.com",
-      "date": "2018-11-30",
-      "id": 14
-    },
-    {
-      "title": "Fake Article",
-      "synopsis": "Super cool news story",
-      "url": "http://starwars.com",
-      "date": "2018-12-21",
-      "id": 15
     }
   ],
   "tasks": [
@@ -454,20 +440,6 @@
       "location": "Jonathan's Grille- Nashville, TN",
       "userId": "zac",
       "id": 13
-    },
-    {
-      "name": "Bonnaroo",
-      "date": "2018-11-30",
-      "time": "01:03",
-      "location": "Nashville",
-      "id": 14
-    },
-    {
-      "name": "Super cool event",
-      "date": "2018-11-29",
-      "time": "17:00",
-      "location": "My house",
-      "id": 15
     }
   ]
 }
