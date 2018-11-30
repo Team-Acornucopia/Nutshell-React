@@ -155,6 +155,13 @@ class ApplicationViews extends Component {
     );
   };
 
+  editEvent = (event, id) => EventsManager.patchAndList(event, id)
+    .then(events => this.setState({
+      events: events
+    })
+    )
+
+
   render() {
     return (
       <React.Fragment>
@@ -216,7 +223,9 @@ class ApplicationViews extends Component {
             return <EventsList
               {...props}
               events={this.state.events}
-              deleteEvents={this.deleteEvents} />;
+              deleteEvents={this.deleteEvents}
+              editEvent={this.editEvent}
+              />;
           }}
         />
         <Route

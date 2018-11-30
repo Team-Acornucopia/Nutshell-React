@@ -21,7 +21,7 @@ export default class EventsList extends Component {
         </section>
         <section className="events list">
           {this.props.events.map(evt => (
-            <EventsCard key={evt.id} evt={evt} {...this.props} />
+            <EventsCard key={evt.id} evt={evt} {...this.props} editEvent={this.props.editEvent} />
           ))}
         </section>
       </React.Fragment>

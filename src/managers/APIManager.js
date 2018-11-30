@@ -35,13 +35,13 @@ class APIManager {
         .then(e => e.json())
   }
 
-  patch(updatedTask, id) {
+  patch(updatedEntry, id) {
     return fetch(`${remoteURL}/${this.route}/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(updatedTask)
+      body: JSON.stringify(updatedEntry)
     }).then(data => data.json())
   }
 

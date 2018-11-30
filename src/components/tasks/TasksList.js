@@ -22,8 +22,10 @@ export default class TasksList extends Component {
     let makeNode = this.props.tasks.map(currentTask => {
       // console.log(currentTask)
       return (
-
+        // <div>
         <TaskItem deleteTask={this.props.deleteTask} editTask={this.props.editTask} thing={currentTask} key={currentTask.id} />
+        // {/* <button id="editButton"  onChange={this.handleFieldChange} >WOOHOO</button>
+        // </div> */}
       )
     })
 

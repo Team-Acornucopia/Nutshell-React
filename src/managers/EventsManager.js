@@ -13,6 +13,10 @@ class EventsManager extends APIManager {
   addAndList(newMessage) {
       return this.post(newMessage).then(() => this.all())
   }
+
+  patchAndList(newEvent, id) {
+    return this.patch(newEvent, id).then(() => this.all())
+  }
 }
 
 export default new EventsManager("events")

@@ -6,9 +6,24 @@ import './TaskItem.css'
 export default class TaskItem extends Component {
 
 state = {
+  editedTask: "",
+  completed: "",
   editButton: "",
-  completed: ""
+  editTextBox: ""
 }
+
+showEditTextBox = () => {
+  return(
+<input type="texbox" placeholder="woop"></input>
+  )
+}
+
+  // handleEditButtonFieldChange = evt => {
+
+  //   const stateToChange = {}
+  //   stateToChange[evt.target.id]
+  //   this.setState(stateToChange)
+  // }
 
   // handleFieldChangeReact = (event) => {
   // const checkedBox = {}
@@ -41,7 +56,7 @@ state = {
 constructEditedTask = () => {
   //This is the new object that will be patched into the database.
   const newTask = {
-    task: this.state.editButton,
+    task: this.state.editedTask,
     // date: this.props.state.taskDate,
     completed: false
   }
@@ -91,28 +106,28 @@ constructEditedTask = () => {
   // }
 
   //changes property of completed on click to either flase or true
-  // changeCompleted = (id) => {
+  changeCompleted = (id) => {
 
-  //   this.props.thing.map((task) => {
+    this.props.thing.map((task) => {
 
-  //     let currentTask = task.completed
+      let currentTask = task.completed
 
-  //     let updatedTask = (newCompleted) => {
-  //       // const newTaskStatus = true
-  //       if (currentTask) {
-  //         const newCompleted = {
-  //           completed: false
-  //         }
-  //       }
-  //       else {
-  //         const newCompleted = {
-  //           completed: true
-  //         }
-  //       }
-  //     }
-  //     this.props.editTask(updatedTask, id)
-  //   })
-  // }
+      let updatedTask = (newCompleted) => {
+        // const newTaskStatus = true
+        if (currentTask) {
+          const newCompleted = {
+            completed: false
+          }
+        }
+        else {
+          const newCompleted = {
+            completed: true
+          }
+        }
+      }
+      this.props.editTask(updatedTask, id)
+    })
+  }
 
 //original only changes to whatever is specified below
   // changeCompleted = (id) => {
@@ -126,14 +141,41 @@ constructEditedTask = () => {
   //   this.props.editTask(updatedTask, id)
   // }
 
-  //This render is exactly the same as the one in the todo exercise.
+//with contentEditable inside TaskItem
+//   render() {
+//     // console.log(this.props.thing.completed)
+
+//     return (<li contentEditable="true" id="editButton"  onChange={this.handleFieldChange}
+//       key={this.props.thing.id}>{this.props.thing.task}
+//       {/* <button id="editButton" onClick={this.showEditTextBox}>Edit</button> */}
+//       {/* <input id="editedTask" type="text" placeholder="Edit task" onChange={this.handleFieldChange}></input> */}
+//       <button onClick={this.constructEditedTask}>Submit Edit</button>
+//       {/* <button className="unchecked" onClick={() => { this.changeCompleted(this.props.thing.id) }} type="checkbox" ></button> */}
+//       <button className="" onClick={() => {
+//         // console.log("item button2")
+//         this.props.deleteTask(this.props.thing.id)
+//       }}>
+//         Delete
+//       </button>
+//     </li>
+//     )
+//   }
+// }
+
+
+
+
+
+
+//   //original
+//   //This render is exactly the same as the one in the todo exercise.
   render() {
     // console.log(this.props.thing.completed)
 
     return (<li id={this.props.itemId}
       key={this.props.thing.id}>{this.props.thing.task}
-      <button id={this.props.editButton_itemId}>Edit</button>
-      <input id="editButton" type="text" placeholder="Edit task" onChange={this.handleFieldChange}></input>
+      <button id="editButton" onClick={this.showEditTextBox}>Edit</button>
+      <input id="editedTask" type="text" placeholder="Edit task" onChange={this.handleFieldChange}></input>
       <button onClick={this.constructEditedTask}>Submit Edit</button>
       <button className="unchecked" onClick={() => { this.changeCompleted(this.props.thing.id) }} type="checkbox" ></button>
       <button className="" onClick={() => {
