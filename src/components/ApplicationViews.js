@@ -22,7 +22,7 @@ class ApplicationViews extends Component {
   state = {
     messages: [],
     tasks: [],
-    taskItem: "",
+    // taskItem: "",
     events: [],
     news: [],
     users: []
@@ -67,32 +67,33 @@ class ApplicationViews extends Component {
     });
   }
 
-//This function is not working, its currently being used in TaskForm
-addTask = (task) => TasksManager.post(task)
-.then(tasks => this.setState({
-  tasks: tasks
-})
-)
 
-editTask = (task, id) => TasksManager.patchAndList(task, id)
-.then(tasks => this.setState({
-  tasks: tasks
-  })
-)
+    addTask = (newTask) => TasksManager.postAndList(newTask)
+    .then(() => {
+      return TasksManager.getAll()
+    })
+    .then(allTasks => {
+      // console.log(allTasks)
+      this.setState({
+        tasks: allTasks
+      })
+    })
 
 
-//This deleteTask function is working, its being invoqued in the
-//TaskItem component
-deleteTask = (task) => TasksManager.removeAndList(task)
-.then(tasks => this.setState({
-  tasks: tasks
-  })
-)
+  editTask = (task, id) => TasksManager.patchAndList(task, id)
+    .then(tasks => this.setState({
+      tasks: tasks
+    })
+    )
 
-//This function is not working its connected to the TaskForm
-  setTaskItemState = (val) => {
-    this.setState({taskItem: val})
-  }
+
+  //This deleteTask function is working, its being invoqued in the
+  //TaskItem component
+  deleteTask = (task) => TasksManager.removeAndList(task)
+    .then(tasks => this.setState({
+      tasks: tasks
+    })
+    )
 
 
   // showMessages = () => {
@@ -130,15 +131,16 @@ deleteTask = (task) => TasksManager.removeAndList(task)
             />
           }}
         />
-            <Route exact path="/tasks" render={(props) => {
-            return <TasksList {...props}
-              tasks={this.state.tasks}
-              deleteTask={this.deleteTask}
-              editTask={this.editTask}
-              addTask={this.addTask}
-              setTaskItemState={this.setTaskItemState}
-            />
-          }} />
+        <Route exact path="/tasks" render={(props) => {
+          return <TasksList {...props}
+            // taskItem={this.state.taskItem}
+            tasks={this.state.tasks}
+            deleteTask={this.deleteTask}
+            editTask={this.editTask}
+            addTask={this.addTask}
+          // setTaskItemState={this.setTaskItemState}
+          />
+        }} />
         <Route path="/news/:newsId(\d+)" render={(props) => {
           return <NewsDetail
             {...props}

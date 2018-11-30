@@ -341,6 +341,37 @@
       "completed": false,
       "userId": "dillonWilliams",
       "id": 14
+    },
+    {
+      "task": "eat a taco",
+      "id": 15
+    },
+    {
+      "task": "eat cake",
+      "completed": false,
+      "id": 16
+    },
+    {
+      "task": "2018-11-13",
+      "date": "",
+      "completed": false,
+      "id": 17
+    },
+    {
+      "task": "asdasdasdasd",
+      "completed": false,
+      "id": 18
+    },
+    {
+      "task": "2018-11-14",
+      "date": "2018-11-14",
+      "completed": false,
+      "id": 19
+    },
+    {
+      "task": "2018-11-21",
+      "completed": false,
+      "id": 20
     }
   ],
   "events": [

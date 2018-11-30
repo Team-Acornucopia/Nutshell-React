@@ -115,7 +115,7 @@ export default class TaskItem extends Component {
 
 
       <button className="unchecked" onClick={() => { this.changeCompleted(this.props.thing.id) }} type="checkbox" ></button>
-      <button className="hidden" onClick={() => {
+      <button className="" onClick={() => {
         // console.log("item button2")
         this.props.deleteTask(this.props.thing.id)
       }}>

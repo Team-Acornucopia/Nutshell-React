@@ -1,0 +1,18 @@
+.checked {
+  background-color:green;
+  width:15px;
+  height:15px;
+}
+
+.unchecked {
+  width:15px;
+  height:15px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
