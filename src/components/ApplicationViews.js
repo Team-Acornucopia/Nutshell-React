@@ -144,7 +144,9 @@ class ApplicationViews extends Component {
     return (
       <React.Fragment>
         <Route exact path="/messages" render={props => {
-            return <MessagesList {...props} messages={this.state.messages} />;
+            return <MessagesList {...props} 
+            messages={this.state.messages} 
+            />;
           }}
         />
         <Route exact path="/tasks" render={(props) => {
