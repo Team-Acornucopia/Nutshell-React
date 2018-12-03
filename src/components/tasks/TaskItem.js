@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
-import './TaskItem.css'
+import React, { Component } from "react";
+import "./TaskItem.css";
 // import TasksManager from '../../managers/TasksManager';
-
 
 export default class TaskItem extends Component {
 
