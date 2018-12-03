@@ -24,6 +24,7 @@ class ApplicationViews extends Component {
   state = {
     messages: [],
     tasks: [],
+    currentTask: [],
     events: [],
     news: [],
     users: []
@@ -69,6 +70,8 @@ class ApplicationViews extends Component {
   }
 
 
+
+
   addTask = (newTask) => TasksManager.postAndList(newTask)
     .then(() => {
       return TasksManager.getAll()
@@ -87,6 +90,11 @@ class ApplicationViews extends Component {
     })
     )
 
+  getTask = (id) => TasksManager.getCurrentTask(id)
+  // .then(currentTask => this.setState({
+  //   currentTasks: currentTask
+  // })
+  // )
 
   //This deleteTask function is working, its being invoqued in the
   //TaskItem component
@@ -185,6 +193,7 @@ class ApplicationViews extends Component {
             deleteTask={this.deleteTask}
             editTask={this.editTask}
             addTask={this.addTask}
+            getTask={this.getTask}
           // setTaskItemState={this.setTaskItemState}
           />
         }} />
