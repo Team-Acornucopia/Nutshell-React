@@ -5,6 +5,8 @@ import { Button } from 'semantic-ui-react'
 export default class EventsList extends Component {
   render() {
     let currentUser = sessionStorage.getItem("username")
+    let getFirstOne = false
+    let highlight = false
     return (
       <React.Fragment>
         <section className="eventsButton">
@@ -21,9 +23,17 @@ export default class EventsList extends Component {
         </section>
         <section className="events list">
           {
+           
             this.props.events.map(evt => {
               if (evt.userId === currentUser) {
-                return <EventsCard key={evt.id} evt={evt} {...this.props} />
+                if (getFirstOne === true) {
+                  highlight = false
+                  
+                } else {
+                  getFirstOne= true
+                  highlight= true
+                }
+                return <EventsCard key={evt.id} evt={evt} highlight={highlight} {...this.props} />
               } else {
                 return null
               }
