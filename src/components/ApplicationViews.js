@@ -313,6 +313,7 @@ class ApplicationViews extends Component {
             return < Redirect to = "/login" />
             }
         }} />
+      Welcome to Nutshell
       </React.Fragment>
     );
   }

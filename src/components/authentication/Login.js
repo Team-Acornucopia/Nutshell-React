@@ -21,7 +21,7 @@ export default class Login extends Component {
     this.setState(stateToChange);
   };
 
-  // function to clear all the fields on the page
+  // function to clear all the fields on the page (not currently functional)
   clearFields = e => {
     this.refs.userField.value = "";
     this.refs.passField.value = "";
@@ -57,7 +57,7 @@ export default class Login extends Component {
     }
     // tell the user the result of the test
     console.log(testResult);
-    // this.clearFields2();
+    this.props.history.push("/home")
   };
 
   // zac's logout function
@@ -71,7 +71,7 @@ export default class Login extends Component {
     return (
       // leaving in this basic form for now, but we can refactor with multiple semantic UI forms if we have enough time
       <React.Fragment>
-        <form ref="signIn" onSubmit={this.verifyUser}>
+        <Form onSubmit={this.verifyUser}>
           <h1 className="">Please sign in</h1>
           <label htmlFor="inputUsername">Username</label>
           <Form.Input
@@ -81,7 +81,6 @@ export default class Login extends Component {
             placeholder="username"
             required
             autoFocus=""
-            // ref="userField"
           />
           <label htmlFor="inputPassword">Password</label>
           <Form.Input
@@ -90,13 +89,13 @@ export default class Login extends Component {
             id="password"
             placeholder="password"
             required
-            // ref="passField"
           />
 
           <Button basic color="purple" type="submit">
             Sign in
           </Button>
-        </form>
+        </Form>
+        <br></br>
         <Button as={Link} size="tiny" color="black" className="card-link" to={`/register/`}>Need To Register? Click here.</Button>
       </React.Fragment>
     );
