@@ -3,24 +3,6 @@ import { Button, Card, Image, CardHeader } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
 
 export default class NewsCard extends Component {
-    // animalOwners(animal) {
-    //     const ao = this.props.animalsOwned
-    //     const own = this.props.owners
-    //     const ownerNameArr = []
-
-    //     ao.forEach(animalOwner => {
-    //         if (animal.id === animalOwner.animalId) {
-    //             let petOwnerId = animalOwner.ownerId
-    //             own.forEach(owner => {
-    //                 if (owner.id === petOwnerId) {
-    //                     ownerNameArr.push(owner.name)
-    //                 }
-    //             })
-    //         }
-    //     })
-    //     return ` Owner(s): ${ownerNameArr.join(" and ")}`
-    // }
-
     render() {
         return (
             <Card.Group className="newsCardGroup">

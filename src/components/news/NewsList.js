@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom";
 import NewsCard from "./NewsCard"
 import { Button } from 'semantic-ui-react'
 import "./News.css"
 
 export default class NewsList extends Component {
     render() {
+        let currentUser = sessionStorage.getItem("username")
         return (
             <React.Fragment>
                 <section className="newsButton">
@@ -20,9 +20,13 @@ export default class NewsList extends Component {
                 </section>
                 <section className="news list">
                     {
-                        this.props.news.map(story =>
-                            <NewsCard key={story.id} story={story} deleteArticle={this.props.deleteArticle}{...this.props} />
-                        )
+                        this.props.news.map(story =>  {   
+                            if(story.userId === currentUser) {
+                                return <NewsCard key={story.id} story={story} deleteArticle={this.props.deleteArticle}{...this.props} />
+                            } else {
+                                return null
+                            }
+                        })
                     }
                 </section>
             </React.Fragment>

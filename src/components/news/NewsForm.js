@@ -21,16 +21,12 @@ export default class NewsForm extends Component {
 
     constructNewArticle = evt => {
         evt.preventDefault()
-        // if (this.state.employee === "") {
-        //     window.alert("Please select a caretaker")
-        // } else {
             const news = {
                 title: this.state.title,
                 synopsis: this.state.synopsis,
                 url: this.state.url,
                 date: this.state.date,
                 userId: sessionStorage.getItem("username")
-            // }
 
         }
         this.props.addArticle(news).then(() => this.props.history.push("/news"))

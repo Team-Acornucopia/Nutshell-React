@@ -34,14 +34,6 @@ class EventsEdit extends Component {
      
          this.setState(newState)
     }
-     // editEvent = (event, id) =>
-    //   EventsManager.patchAndList(event, id)
-    //     .then(() => EventsManager.all())
-    //     .then(event =>
-    //       this.setState({
-    //         events: events
-    //       })
-    //     );
          
     editSubmittedEvent = e => {
         // prepare objects for editing database

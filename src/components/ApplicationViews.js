@@ -22,10 +22,6 @@ import UserManager from "../managers/UserManager";
 import Register from "./authentication/Register"
 
 class ApplicationViews extends Component {
-  // Check if credentials are in local storage
-  // isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
-
-
   //I added the taskItem property to the state, this doesnt affect the
   //TaskList, its actually supposed to be for the TaskForm which is not working at the moment.
   //Even though its there its not supposed to break anything.
@@ -39,13 +35,6 @@ class ApplicationViews extends Component {
   };
 
   componentDidMount() {
-    // const newState = {
-
-    // };
-
-    // here will be fetches for messages, tasks, events, news
-    // manager modules built separately
-
     NewsManager.getAll().then(allNews => {
       this.setState({
         news: allNews
@@ -83,7 +72,6 @@ class ApplicationViews extends Component {
       return TasksManager.getAll()
     })
     .then(allTasks => {
-      // console.log(allTasks)
       this.setState({
         tasks: allTasks
       })
@@ -105,14 +93,6 @@ class ApplicationViews extends Component {
     })
     )
 
-
-  // showMessages = () => {
-  //   console.log(this.state.messages);
-  // };
-
-  //I added a new route for TasksList.
-
-  // Check if credentials are in local storage
   isAuthenticated = () => sessionStorage.getItem("username") !== null
 
   addArticle = news =>

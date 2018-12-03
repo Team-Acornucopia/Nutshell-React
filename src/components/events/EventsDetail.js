@@ -4,24 +4,6 @@ import { Link } from "react-router-dom";
 
 
 export default class EventsDetails extends Component {
-    // animalOwners(animal) {
-    //     const ao = this.props.animalsOwned
-    //     const own = this.props.owners
-    //     const ownerNameArr = []
-
-    //     ao.forEach(animalOwner => {
-    //         if (animal.id === animalOwner.animalId) {
-    //             let petOwnerId = animalOwner.ownerId
-    //             own.forEach(owner => {
-    //                 if (owner.id === petOwnerId) {
-    //                     ownerNameArr.push(owner.name)
-    //                 }
-    //             })
-    //         }
-    //     })
-    //     return ` Owner(s): ${ownerNameArr.join(" and ")}`
-    // }
-
     render() {
 
         const events = this.props.events.find(a => a.id === parseInt(this.props.match.params.eventsId)) || {}

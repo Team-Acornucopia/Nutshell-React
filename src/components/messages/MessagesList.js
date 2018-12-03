@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom";
 import MessagesCard from "./MessagesCard"
+import MessagesCard2 from "./MessagesCard2"
 import { Button } from 'semantic-ui-react'
 
 export default class MessagesList extends Component {
     render() {
+        let currentUser = sessionStorage.getItem("username")
         return (
             <React.Fragment>
                 <section className="messagesButton">
@@ -15,11 +16,15 @@ export default class MessagesList extends Component {
                     </Button>
                 </section>
                 <section className="messages list">
-                    {
-                        this.props.messages.map(message =>
-                            <MessagesCard key={message.id} message={message} deleteMessage={this.props.deleteMessage}{...this.props} />
-                        )
-                    }
+                {
+            this.props.messages.map(message => {
+              if (message.userId === currentUser) {
+                return <MessagesCard key={message.id} message={message} deleteMessage={this.props.deleteMessage}{...this.props} />
+              } else {
+                return <MessagesCard2 key={message.id} message={message} {...this.props} />
+              }
+            })
+          }
                 </section>
             </React.Fragment>
         )
