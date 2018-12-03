@@ -16,3 +16,18 @@
 .visible {
   visibility: visible;
 }
+
+.task {
+  list-style-type: none;
+  padding-top: 8px;
+  /* margin: 5px; */
+}
+
+.listP {
+  padding: 5px;
+  color: #666666;
+}
+
+.checkboi {
+  margin: 5px;
+}
