@@ -6,11 +6,6 @@ class APIManager {
     }
 
   get(id) {
-    /*
-        Since the purpose of this module is to be used by
-        all of the more specialized one, then the string
-        of `animals` should not be hard coded here.
-    */
    return fetch(`${remoteURL}/${this.route}/${id}`).then(e => e.json())
   }
 
@@ -35,13 +30,13 @@ class APIManager {
         .then(e => e.json())
   }
 
-  patch(updatedTask, id) {
-    return fetch(`${remoteURL}/${this.route}/${id}`, {
+  patch(payload, url) {
+    return fetch(`${url}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(updatedTask)
+      body: JSON.stringify(payload)
     }).then(data => data.json())
   }
 

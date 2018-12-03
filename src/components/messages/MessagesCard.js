@@ -28,6 +28,7 @@ export default class MessagesCard extends Component {
                             <Message.Header>{this.props.message.userId}</Message.Header>
                             <p>{this.props.message.message}</p>
                             {/* <Link className="nav-link" to={`/messages/${this.props.message.id}`}>Details</Link> */}
+                            <Link className="card-link" to={`/messages/edit/${this.props.message.id}`}>Edit</Link>
                             <Button size ="tiny" color="red"
                                 onClick={() => this.props.deleteMessage(this.props.message.id)}
                                 className="card-link">Delete</Button>
