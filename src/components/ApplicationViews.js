@@ -16,6 +16,7 @@ import TasksManager from "../managers/TasksManager";
 import Login from "./authentication/Login";
 import UserManager from "../managers/UserManager";
 import Register from "./authentication/Register"
+import EventsEdit from "./events/EventsEdit"
 
 class ApplicationViews extends Component {
   // Check if credentials are in local storage
@@ -160,6 +161,15 @@ class ApplicationViews extends Component {
     );
   };
 
+  editEvents = (events, url) =>
+      EventsManager.patchAndListEvent(events, url)
+        .then(() => EventsManager.all())
+        .then(events =>
+          this.setState({
+            events: events
+          })
+        );
+
   render() {
     return (
       <React.Fragment>
@@ -231,6 +241,12 @@ class ApplicationViews extends Component {
             return <EventsForm {...props} addEvent={this.addEvent} />;
           }}
         />
+         <Route path="/events/edit/:eventId(\d+)"
+          render={props => {
+            return <EventsEdit {...props}
+              events={this.state.events}
+              editEvents={this.editEvents} />
+          }} />
       </React.Fragment>
     );
   }

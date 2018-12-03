@@ -17,6 +17,8 @@ export default class EventsCard extends Component {
                           <Button size="tiny" color="red"
                               onClick={() => this.props.deleteEvents(this.props.evt.id)}
                               className="card-link">Delete</Button>
+                              
+                          <Link className="card-link" to={`/events/edit/${this.props.evt.id}`}>Edit</Link>
                   </Card.Content>
               </Card>
           </Card.Group>
