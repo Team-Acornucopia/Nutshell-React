@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import { Button } from 'semantic-ui-react'
+import { Button, Form } from "semantic-ui-react";
+import "./News.css"
 
 export default class NewsForm extends Component {
     // Set initial state
@@ -38,37 +39,37 @@ export default class NewsForm extends Component {
     render() {
         return (
             <React.Fragment>
-                <form className="newsForm">
-                    <div className="form-group">
-                        <label htmlFor="title">title</label>
+                <Form className="NewsForm">
+                    <Form.Field className="form-group">
+                        <label htmlFor="title">Title</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="title"
                                placeholder="title" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="url">url</label>
+                    </Form.Field>
+                    <Form.Field className="form-group">
+                        <label htmlFor="url">Url</label>
                         <input type="url" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="url" placeholder="url" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="synopsis">synopsis</label>
+                    </Form.Field>
+                    <Form.Field className="form-group">
+                        <label htmlFor="synopsis">Synopsis</label>
                         <input type="textarea" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="synopsis"
                                placeholder="synopsis" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="date">date</label>
+                    </Form.Field>
+                    <Form.Field className="form-group">
+                        <label htmlFor="date">Date</label>
                         <input type="date" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="date" placeholder="date" />
-                    </div>
+                    </Form.Field>
                     {/* <div className="form-group">
                         <label htmlFor="employee">Assign to caretaker</label>
                         <select defaultValue="" name="employee" id="employee"
@@ -79,8 +80,8 @@ export default class NewsForm extends Component {
                         }
                         </select>
                     </div> */}
-                    <Button type="submit" onClick={this.constructNewArticle} className="btn btn-primary">Submit</Button>
-                </form>
+                    <Button type="submit" onClick={this.constructNewArticle} className="btn btn-primary" color="green">Submit</Button>
+                </Form>
             </React.Fragment>
         )
     }

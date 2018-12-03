@@ -6,9 +6,10 @@ export default class EventsCard extends Component {
 
   render() {
       return (
-          <Card.Group>
+        
+          <Card.Group >
 
-              <Card key={this.props.evt.id} className="card">
+              <Card key={this.props.evt.id} className="card" floated="right">
                   <Card.Content className="card-body">
                       <Card.Header className="card-title">Event: {this.props.evt.name}</Card.Header>
                           <Card.Meta>Date: {this.props.evt.date}</Card.Meta>
@@ -21,6 +22,7 @@ export default class EventsCard extends Component {
                           <Link className="card-link" to={`/events/edit/${this.props.evt.id}`}>Edit</Link>
                   </Card.Content>
               </Card>
+
           </Card.Group>
       )
   }
