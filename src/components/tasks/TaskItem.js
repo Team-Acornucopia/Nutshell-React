@@ -3,7 +3,6 @@ import "./TaskItem.css";
 // import TasksManager from '../../managers/TasksManager';
 
 export default class TaskItem extends Component {
-
   state = {
     editedTask: "",
     editButton: "",
@@ -12,7 +11,7 @@ export default class TaskItem extends Component {
     taskUpdateValue: "",
     showTaskDateUpdate: false,
     taskDateUpdateValue: ""
-  }
+  };
 
   //#1
   //This function changes the state above, it gets the id of the target, which is the id of the button itself
@@ -45,31 +44,25 @@ export default class TaskItem extends Component {
     this.setState({
       showTaskUpdate: !this.state.showTaskUpdate,
       showTaskDateUpdate: !this.state.showTaskDateUpdate
-    })
+    });
   };
 
   //This function checks the checkbox itself to see if its checked or not.
-  handleCheckBoxChange = (evt) => {
-
+  handleCheckBoxChange = evt => {
     if (evt.target.checked === false) {
-
       const taskCheckboxStatus = {
         completed: false
       };
 
-      this.props.editTask(taskCheckboxStatus, this.props.thing.id)
-    }
-
-    else {
-
+      this.props.editTask(taskCheckboxStatus, this.props.thing.id);
+    } else {
       const taskCheckboxStatus = {
         completed: true
       };
 
-      this.props.editTask(taskCheckboxStatus, this.props.thing.id)
+      this.props.editTask(taskCheckboxStatus, this.props.thing.id);
     }
-  }
-
+  };
 
   //#2
   //This function constructs a new edited Task.
@@ -85,21 +78,17 @@ export default class TaskItem extends Component {
     this.props.editTask(newTask, this.props.thing.id);
   };
 
-
-
-
-
-
-
-
-
-  // //original
-  // //This render is exactly the same as the one in the todo exercise.
+  // original
+  
   render() {
-    // console.log(this.props.thing.completed)
 
     // zac - trying a new way to edit
-    const { showTaskUpdate, taskUpdateValue, showTaskDateUpdate, taskDateUpdateValue } = this.state;
+    const {
+      showTaskUpdate,
+      taskUpdateValue,
+      showTaskDateUpdate,
+      taskDateUpdateValue
+    } = this.state;
     let taskForm = "";
     // let taskEditDate = "";
 
@@ -113,10 +102,9 @@ export default class TaskItem extends Component {
             value={taskUpdateValue}
             onChange={this.onChange}
           />
-            <input
+          <input
             type="date"
             name="taskDateUpdateValue"
-            // placeholder="edit the task"
             value={taskDateUpdateValue}
             onChange={this.onChange}
           />
@@ -127,30 +115,15 @@ export default class TaskItem extends Component {
       taskForm = null;
     }
 
-    // const { showTaskDateUpdate, taskDateUpdateValue } = this.state;
-    // let taskEditDate = "";
-    // if (showTaskDateUpdate) {
-    //   taskEditDate = (
-    //     <form onSubmit={this.editSubmit}>
-    //       <input
-    //         type="date"
-    //         name="taskDateUpdateValue"
-    //         // placeholder="edit the task"
-    //         value={taskDateUpdateValue}
-    //         onChange={this.onChange}
-    //       />
-    //       <button>Submit Edit</button>
-    //     </form>
-    //   );
-    // } else {
-    //   taskEditDate = null;
-    // }
-
-
-
     return (
       <li id={this.props.itemId} key={this.props.thing.id}>
-        <input id="completed" className="unchecked" defaultChecked={this.props.thing.completed} onClick={this.handleCheckBoxChange} type="checkbox" ></input>
+        <input
+          id="completed"
+          className="unchecked"
+          defaultChecked={this.props.thing.completed}
+          onClick={this.handleCheckBoxChange}
+          type="checkbox"
+        />
         {this.props.thing.task}
         <a
           href="#!"
@@ -163,11 +136,9 @@ export default class TaskItem extends Component {
           }
         >
           Edit
-  </a>
+        </a>
         {taskForm}
-        {/* {taskEditDate} */}
-        {/* <input id="editButton" type="text" placeholder="Edit task" onChange={this.handleFieldChange}></input> */}
-        {/* <button onClick={this.constructEditedTask}>Submit Edit</button> */}
+        
         <button
           className=""
           onClick={() => {
@@ -175,7 +146,7 @@ export default class TaskItem extends Component {
           }}
         >
           Delete
-  </button>
+        </button>
       </li>
     );
   }
