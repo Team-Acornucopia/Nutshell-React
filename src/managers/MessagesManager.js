@@ -13,6 +13,9 @@ class MessagesManager extends APIManager {
   addAndList(newMessage) {
       return this.post(newMessage).then(() => this.all())
   }
+  patchAndListMessages(payload, url) {
+    return this.patch(payload, url).then(() => this.allSortedFurthest())
+  }
 }
 
 export default new MessagesManager("messages")

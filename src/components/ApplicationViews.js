@@ -1,18 +1,20 @@
 import { Route } from "react-router-dom";
 import React, { Component } from "react";
 import TasksList from "./tasks/TasksList";
+import TasksManager from "../managers/TasksManager";
 import NewsList from "./news/NewsList";
 import NewsDetail from "./news/NewsDetail";
 import NewsForm from "./news/NewsForm";
+import NewsEdit from "./news/NewsEdit"
+import NewsManager from "../managers/NewsManager";
 import MessagesList from "./messages/MessagesList";
 import MessagesForm from "./messages/MessagesForm";
-// import MessagesDetail from "./messages/MessagesDetail";
+import MessagesDetail from "./messages/MessagesDetail";
+import MessagesEdit from "./messages/MessagesEdit"
+import MessagesManager from "../managers/MessagesManager";
 import EventsList from "./events/EventsList";
 import EventsForm from "./events/EventsForm";
-import NewsManager from "../managers/NewsManager";
 import EventsManager from "../managers/EventsManager";
-import MessagesManager from "../managers/MessagesManager";
-import TasksManager from "../managers/TasksManager";
 import Login from "./authentication/Login";
 import UserManager from "../managers/UserManager";
 import Register from "./authentication/Register"
@@ -119,8 +121,27 @@ class ApplicationViews extends Component {
         })
       );
 
+  editArticle = (news, url) =>
+    NewsManager.patchAndListNews(news, url)
+      .then(() => NewsManager.all())
+      .then(news =>
+        this.setState({
+          news: news
+        })
+      );
+
+
   addMessage = messages =>
     MessagesManager.addAndList(messages)
+      .then(() => MessagesManager.all())
+      .then(messages =>
+        this.setState({
+          messages: messages
+        })
+      );
+
+  editMessage = (messages, url) =>
+    MessagesManager.patchAndListMessages(messages, url)
       .then(() => MessagesManager.all())
       .then(messages =>
         this.setState({
@@ -143,6 +164,14 @@ class ApplicationViews extends Component {
       })
     );
   };
+
+  // deleteArticle = id => {
+  //   return NewsManager.removeAndList(id).then(news =>
+  //     this.setState({
+  //       news: news
+  //     })
+  //   );
+  // };
 
   addEvent = events =>
     EventsManager.addAndList(events)
@@ -186,6 +215,18 @@ class ApplicationViews extends Component {
           />
         }}
         />
+        <Route path="/messages/:messagesId(\d+)" render={(props) => {
+          return <MessagesDetail {...props}
+            messages={this.state.messages}
+            deleteMessage={this.deleteMessage}
+          />
+        }} />
+        <Route path="/messages/edit/:messagesId(\d+)"
+          render={props => {
+            return <MessagesEdit {...props}
+              messages={this.state.messages}
+              editMessage={this.editMessage} />
+          }} />
         <Route exact path="/tasks" render={(props) => {
           return <TasksList {...props}
             // taskItem={this.state.taskItem}
@@ -214,15 +255,21 @@ class ApplicationViews extends Component {
           />
         }}
         />
+        <Route path="/news/edit/:newsId(\d+)"
+          render={props => {
+            return <NewsEdit {...props}
+              news={this.state.news}
+              editArticle={this.editArticle} />
+          }} />
         <Route exact path="/login" render={props => {
           return <Login {...props}
             users={this.state.users} />;
         }}
         />
         <Route exact path="/register" render={props => {
-            return <Register {...props} 
+          return <Register {...props}
             users={this.state.users} />;
-          }}
+        }}
         />
         <Route
           exact
