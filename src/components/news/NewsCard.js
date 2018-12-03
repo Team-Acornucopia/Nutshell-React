@@ -6,7 +6,7 @@ export default class NewsCard extends Component {
     render() {
         return (
             <Card.Group className="newsCardGroup">
-                <Card key={this.props.story.id} className="card">
+                <Card key={this.props.story.id} className="newsCard">
                     <Card.Content className="card-body">
                         <h5 className="card-title">
                             <Card.Header>Title: {this.props.story.title}</Card.Header>

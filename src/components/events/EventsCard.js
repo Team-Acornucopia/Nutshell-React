@@ -9,7 +9,7 @@ export default class EventsCard extends Component {
         return (
             <Card.Group className="eventsCardGroup">
 
-                <Card key={this.props.evt.id} className="card">
+                <Card key={this.props.evt.id} className="eventsCard">
                     <Card.Content className="card-body">
                         <Card.Header className="card-title">Event: {this.props.evt.name}</Card.Header>
                         <Card.Meta>Date: {this.props.evt.date}</Card.Meta>

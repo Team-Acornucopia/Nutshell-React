@@ -17,7 +17,7 @@
   align-items: center;
 }
 
-.card {
+.newsCard {
   background-color: lavender !important;
   border: 1px solid black !important;
   text-align: center;
@@ -27,4 +27,10 @@
 .newsCardGroup {
   display: flex !important;
   justify-content: center !important;
+}
+
+.newsButton {
+  display: flex !important;
+  justify-content: center !important;
+  margin: 20px;
 }
