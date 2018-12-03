@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Menu, Icon } from "semantic-ui-react";
+import { Menu, Icon, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 export default class MenuExampleHeader extends Component {
@@ -13,6 +13,47 @@ export default class MenuExampleHeader extends Component {
 
   render() {
     const { activeItem } = this.state;
+
+    let username = sessionStorage.getItem("username");
+    let logButton = "";
+
+    // zac - testing conditional navbar links
+    if (username === null) {
+      // if no username, render both login and registration links, but NO logout
+      logButton = (
+        <React.Fragment>
+          <Menu.Item
+            as={Link}
+            to="/login"
+            name="login"
+            active={activeItem === "login"}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
+            as={Link}
+            to="/register"
+            name="register"
+            active={activeItem === "register"}
+            onClick={this.handleItemClick}
+          />
+        </React.Fragment>
+      );
+    } else {
+      // if there IS a username, render user's name and logout button
+      // user's name can be a link to their profile page
+      logButton = (
+        <React.Fragment>
+          <Menu.Item
+            as={Link}
+            to="/login"
+            name={username}
+            active={activeItem === "login"}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item as={Link} to="/home" name="logout" onClick={this.logout} />
+        </React.Fragment>
+      );
+    }
 
     return (
       <Menu pointing>
@@ -52,26 +93,22 @@ export default class MenuExampleHeader extends Component {
           onClick={this.handleItemClick}
         />
         <Menu.Menu position="right">
-          <Menu.Item
+          {/* <Menu.Item
             as={Link}
             to="/login"   
             name="login"
             active={activeItem === "login"}
             onClick={this.handleItemClick}
-          />
-          <Menu.Item
+          /> */}
+          {logButton}
+          {/* <Menu.Item
             as={Link}
             to="/register"
             name="register"
             active={activeItem === "register"}
             onClick={this.handleItemClick}
-          />
-          <Menu.Item 
-            as={Link}
-            to="/home"
-            name="logout"
-            onClick={this.logout}
-          />
+          /> */}
+          {/* <Menu.Item as={Link} to="/home" name="logout" onClick={this.logout} /> */}
         </Menu.Menu>
       </Menu>
     );
