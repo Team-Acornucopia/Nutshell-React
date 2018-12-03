@@ -35,6 +35,6 @@
 }
 
 .prominent {
-  background-color: purple !important;
-  color: white !important;
+  background-color: rgb(241, 237, 230) !important;
+  font-weight: bold;
 }

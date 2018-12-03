@@ -11,7 +11,7 @@ export default class EventsCard extends Component {
     let cardColor = ""
     if (this.props.highlight) {
       prominent="prominent card-body"
-      cardColor="green"
+      cardColor="purple"
     } else {
       prominent = "card-body"
       cardColor= null

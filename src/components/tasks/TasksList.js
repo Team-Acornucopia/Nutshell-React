@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import TaskForm from "./TaskForm";
 import TaskItem from "./TaskItem";
+import "./TaskItem.css"
+
 
 export default class TasksList extends Component {
   //This is the same field change from the todo exercise, the deleteTask function
@@ -24,8 +26,8 @@ export default class TasksList extends Component {
     });
 
     return (
-      <div>
-        {/* <h3>Tasks: </h3> */}
+      <div className="taskContainer">
+        <h2 className="taskHeader">TASKS</h2>
         <TaskForm
           addTask={this.props.addTask}
           setTaskItemState={this.props.setTaskItemState}
