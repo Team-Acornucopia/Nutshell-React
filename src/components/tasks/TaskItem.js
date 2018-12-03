@@ -98,28 +98,6 @@ export default class TaskItem extends Component {
   render() {
     // console.log(this.props.thing.completed)
 
-
-
-
-    //   return (<li id={this.props.itemId}
-    //     key={this.props.thing.id}>{this.props.thing.task}
-    //     <button id="editButton" onClick={this.showEditTextBox}>Edit</button>
-    //     <input id="editedTask" type="text" placeholder="Edit task" onChange={this.handleFieldChange}></input>
-    //     <button onClick={this.constructEditedTask}>Submit Edit</button>
-    //     {/* <button className="unchecked" onClick={() => { this.changeCompleted(this.props.thing.id) }} type="checkbox" ></button> */}
-    //     <input id="completed" className="unchecked" defaultChecked={this.props.thing.completed} onClick={this.handleCheckBoxChange} type="checkbox" ></input>
-    //     <button className="" onClick={() => {
-    //       // console.log("item button2")
-    //       this.props.deleteTask(this.props.thing.id)
-    //     }}>
-    //       Delete
-    //   </button>
-    //   </li>
-    //   )
-    // }
-
-
-
     // zac - trying a new way to edit
     const { showTaskUpdate, taskUpdateValue, showTaskDateUpdate, taskDateUpdateValue } = this.state;
     let taskForm = "";
