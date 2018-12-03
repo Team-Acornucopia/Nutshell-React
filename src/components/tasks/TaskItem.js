@@ -79,9 +79,8 @@ export default class TaskItem extends Component {
   };
 
   // original
-  
-  render() {
 
+  render() {
     // zac - trying a new way to edit
     const {
       showTaskUpdate,
@@ -119,13 +118,12 @@ export default class TaskItem extends Component {
       <li id={this.props.itemId} key={this.props.thing.id} className="task">
         <input
           id="completed"
-          className="unchecked"
+          className="unchecked checkboi"
           defaultChecked={this.props.thing.completed}
           onClick={this.handleCheckBoxChange}
           type="checkbox"
         />
-        {this.props.thing.task}, completion: {this.props.thing.date}
-        <br></br>
+        {this.props.thing.task}{" "}
         <a
           href="#!"
           id={this.props.editButton_itemId}
@@ -137,17 +135,19 @@ export default class TaskItem extends Component {
           }
         >
           Edit
-        </a>
+        </a>{" "}
+        <p className="listP">
+          completion: {this.props.thing.date}{" "}
+          <button
+            className=""
+            onClick={() => {
+              this.props.deleteTask(this.props.thing.id);
+            }}
+          >
+            Delete
+          </button>{" "}
+        </p>
         {taskForm}
-
-        <button
-          className=""
-          onClick={() => {
-            this.props.deleteTask(this.props.thing.id);
-          }}
-        >
-          Delete
-        </button>
       </li>
     );
   }
