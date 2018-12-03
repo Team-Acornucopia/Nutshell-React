@@ -62,6 +62,7 @@ export default class Login extends Component {
       UserManager.post(toSave);
     }
     console.log(message);
+    this.props.history.push("/home")
   };
 
   render() {
