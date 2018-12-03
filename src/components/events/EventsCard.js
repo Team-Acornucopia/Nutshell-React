@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Button, Card, Image } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
-import './Events.css'
+
 
 export default class EventsCard extends Component {
 
