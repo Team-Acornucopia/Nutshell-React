@@ -40,6 +40,16 @@ class APIManager {
     }).then(data => data.json())
   }
 
+  patchTasks(updatedTask, id) {
+    return fetch(`${remoteURL}/${this.route}/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(updatedTask)
+    }).then(data => data.json())
+  }
+
   post(payload) {
     return fetch(`${remoteURL}/${this.route}/`, {
       method: "POST",

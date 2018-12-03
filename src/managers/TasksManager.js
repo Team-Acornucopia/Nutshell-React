@@ -15,7 +15,7 @@ class TasksManager extends APIManager {
   }
 
   patchAndList(updatedTask, id) {
-    return this.patch(updatedTask, id).then(() => this.all())
+    return this.patchTasks(updatedTask, id).then(() => this.all())
   }
 
   // post(newTask) {
