@@ -11,10 +11,7 @@ export default class MessagesList extends Component {
                     <Button color="green" type="button"
                         className="btn btn-success"
                         onClick={() => {
-                            this.props.history.push("/messages/new")
-                        }
-                        }>
-                        New Message
+                            this.props.history.push("/messages/new")}}>New Message
                     </Button>
                 </section>
                 <section className="messages list">

@@ -30,9 +30,9 @@ export default class NewsCard extends Component {
                             <Card.Header>Title: {this.props.story.title}</Card.Header>
                             <Card.Header a href={`${this.props.story.url}`}>Link to This Article</Card.Header>
                             <Card.Description>Synopsis: {this.props.story.synopsis}</Card.Description>
-                            <Link className="nav-link" to={`/news/${this.props.story.id}`}>Details</Link>
-                            <Link className="card-link" to={`/news/edit/${this.props.story.id}`}>Edit</Link>
-                            <Button color="red"
+                            <Button as={Link} size="tiny" color="purple" className="nav-link" to={`/news/${this.props.story.id}`}>Details</Button>
+                            <Button as={Link} size="tiny" color="orange" className="card-link" to={`/news/edit/${this.props.story.id}`}>Edit</Button>
+                            <Button size="tiny" color="red"
                                 onClick={() => this.props.deleteArticle(this.props.story.id)}
                                 className="card-link">Delete</Button>
                         </h5>

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Button, Card, Image } from 'semantic-ui-react'
+import { Link } from "react-router-dom";
 
 class MessagesEdit extends Component {
     // state = {
@@ -137,8 +139,8 @@ class MessagesEdit extends Component {
                         {/* </div> */}
                     {/* </div> */}
 
-                    <button type="submit" className="btn btn-primary" onClick={this.editSubmittedMessage}>Edit Message</button>
-
+                    <Button color="green" size="tiny" type="submit" className="btn btn-primary" onClick={this.editSubmittedMessage}>Edit Message</Button>
+                    <Button as={Link} size="tiny" color="yellow" className="card-link" to={`/messages/`}>Back</Button>
                 </form>
             </div>
         );

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Form } from "semantic-ui-react";
 import UserManager from "../../managers/UserManager";
+import { Link } from "react-router-dom";
 
 export default class Login extends Component {
   // Set initial state
@@ -97,6 +98,8 @@ export default class Login extends Component {
         <Button onClick={this.logout} basic color="red" type="">
           Log out
         </Button>
+        <Button as={Link} size="tiny" color="black" className="card-link" to={`/login/`}>Already Have an Account? Click here.</Button>
+
       </React.Fragment>
     );
   }
