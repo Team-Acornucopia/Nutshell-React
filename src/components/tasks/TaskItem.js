@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./TaskItem.css";
 import { Button } from "semantic-ui-react"
+import { Image } from 'semantic-ui-react'
 // import TasksManager from '../../managers/TasksManager';
 
 export default class TaskItem extends Component {
@@ -117,6 +118,7 @@ export default class TaskItem extends Component {
 
     return (
       <li id={this.props.itemId} key={this.props.thing.id} className="task">
+      {/* <Image src='http://icons.iconarchive.com/icons/blackvariant/button-ui-requests-1/1024/Acorn-icon.png' size='small' /> */}
         <input
           id="completed"
           className="unchecked checkboi"

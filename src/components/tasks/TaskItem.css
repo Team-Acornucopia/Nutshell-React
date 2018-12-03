@@ -1,12 +1,21 @@
 .checked {
-  background-color:green;
   width:15px;
   height:15px;
+  background-image: url("https://cdn0.iconfinder.com/data/icons/basic-ui-elements-colored/700/010_x-3-512.png");
+  /* background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: right top;
+  margin-right:10px; */
 }
 
 .unchecked {
   width:15px;
   height:15px;
+  background-image: url("http://icons.iconarchive.com/icons/blackvariant/button-ui-requests-1/1024/Acorn-icon.png");
+  background-repeat: no-repeat;
+  /* background-size: 30px;
+  background-position: right top;
+  margin-right:10px; */
 }
 
 .hidden {
