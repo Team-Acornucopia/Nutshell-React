@@ -31,5 +31,5 @@
 .eventsButton {
   display: flex !important;
   justify-content: center !important;
-  margin-bottom: 20px;
+  margin: 20px;
 }
