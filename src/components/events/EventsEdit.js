@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import EventsManager from "../../managers/EventsManager"
+
  
 class EventsEdit extends Component {
   
