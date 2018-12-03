@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import React, { Component } from "react";
 import TasksList from "./tasks/TasksList";
 import TasksManager from "../managers/TasksManager";
@@ -15,10 +15,11 @@ import MessagesManager from "../managers/MessagesManager";
 import EventsList from "./events/EventsList";
 import EventsForm from "./events/EventsForm";
 import EventsManager from "../managers/EventsManager";
+import EventsDetail from "./events/EventsDetail";
+import EventsEdit from "./events/EventsEdit"
 import Login from "./authentication/Login";
 import UserManager from "../managers/UserManager";
 import Register from "./authentication/Register"
-import EventsEdit from "./events/EventsEdit"
 
 class ApplicationViews extends Component {
   // Check if credentials are in local storage
@@ -111,6 +112,8 @@ class ApplicationViews extends Component {
 
   //I added a new route for TasksList.
 
+  // Check if credentials are in local storage
+  isAuthenticated = () => sessionStorage.getItem("username") !== null
 
   addArticle = news =>
     NewsManager.addAndList(news)
@@ -165,14 +168,6 @@ class ApplicationViews extends Component {
     );
   };
 
-  // deleteArticle = id => {
-  //   return NewsManager.removeAndList(id).then(news =>
-  //     this.setState({
-  //       news: news
-  //     })
-  //   );
-  // };
-
   addEvent = events =>
     EventsManager.addAndList(events)
       .then(() => EventsManager.all())
@@ -191,76 +186,105 @@ class ApplicationViews extends Component {
   };
 
   editEvents = (events, url) =>
-      EventsManager.patchAndListEvent(events, url)
-        .then(() => EventsManager.all())
-        .then(events =>
-          this.setState({
-            events: events
-          })
-        );
+    EventsManager.patchAndListEvent(events, url)
+      .then(() => EventsManager.all())
+      .then(events =>
+        this.setState({
+          events: events
+        })
+      );
 
   render() {
     return (
       <React.Fragment>
         <Route exact path="/messages" render={props => {
-          return <MessagesList {...props}
-            messages={this.state.messages}
-            deleteMessage={this.deleteMessage}
-          />;
+          if (this.isAuthenticated()) {
+            return <MessagesList {...props}
+              messages={this.state.messages}
+              deleteMessage={this.deleteMessage} />;
+          } else {
+            return <Redirect to="/login" />
+          }
         }}
         />
         <Route exact path="/messages/new" render={props => {
-          return <MessagesForm {...props}
-            addMessage={this.addMessage}
-          />
+          if (this.isAuthenticated()) {
+            return <MessagesForm {...props}
+              addMessage={this.addMessage} />
+          } else {
+            return <Redirect to="/login" />
+          }
         }}
         />
         <Route path="/messages/:messagesId(\d+)" render={(props) => {
-          return <MessagesDetail {...props}
-            messages={this.state.messages}
-            deleteMessage={this.deleteMessage}
-          />
+          if (this.isAuthenticated()) {
+            return <MessagesDetail {...props}
+              messages={this.state.messages}
+              deleteMessage={this.deleteMessage} />
+          } else {
+            return <Redirect to="/login" />
+          }
         }} />
         <Route path="/messages/edit/:messagesId(\d+)"
           render={props => {
-            return <MessagesEdit {...props}
-              messages={this.state.messages}
-              editMessage={this.editMessage} />
+            if (this.isAuthenticated()) {
+              return <MessagesEdit {...props}
+                messages={this.state.messages}
+                editMessage={this.editMessage} />
+            } else {
+              return <Redirect to="/login" />
+            }
           }} />
         <Route exact path="/tasks" render={(props) => {
-          return <TasksList {...props}
-            // taskItem={this.state.taskItem}
-            tasks={this.state.tasks}
-            deleteTask={this.deleteTask}
-            editTask={this.editTask}
-            addTask={this.addTask}
-          // setTaskItemState={this.setTaskItemState}
-          />
+          if (this.isAuthenticated()) {
+            return <TasksList {...props}
+              // taskItem={this.state.taskItem}
+              // setTaskItemState={this.setTaskItemState}
+              tasks={this.state.tasks}
+              deleteTask={this.deleteTask}
+              editTask={this.editTask}
+              addTask={this.addTask}
+            />
+          } else {
+            return <Redirect to="/login" />
+          }
         }} />
         <Route exact path="/news" render={(props) => {
-          return <NewsList {...props}
-            news={this.state.news}
-            deleteArticle={this.deleteArticle}
-          />
+          if (this.isAuthenticated()) {
+            return <NewsList {...props}
+              news={this.state.news}
+              deleteArticle={this.deleteArticle} />
+          } else {
+            return <Redirect to="/login" />
+          }
         }} />
         <Route path="/news/:newsId(\d+)" render={(props) => {
-          return <NewsDetail {...props}
-            news={this.state.news}
-            deleteArticle={this.deleteArticle}
-          />
+          if (this.isAuthenticated()) {
+            return <NewsDetail {...props}
+              news={this.state.news}
+              deleteArticle={this.deleteArticle} />
+          } else {
+            return <Redirect to="/login" />
+          }
         }} />
         <Route exact path="/news/new" render={props => {
-          return <NewsForm {...props}
-            addArticle={this.addArticle}
-          />
+          if (this.isAuthenticated()) {
+            return <NewsForm {...props}
+              addArticle={this.addArticle} />
+          } else {
+            return <Redirect to="/login" />
+          }
         }}
         />
-        <Route path="/news/edit/:newsId(\d+)"
-          render={props => {
+        <Route path="/news/edit/:newsId(\d+)" render={props => {
+          if (this.isAuthenticated()) {
             return <NewsEdit {...props}
               news={this.state.news}
               editArticle={this.editArticle} />
-          }} />
+          } else {
+            return <Redirect to="/login" />
+          }
+        }} />
         <Route exact path="/login" render={props => {
           return <Login {...props}
             users={this.state.users} />;
@@ -271,29 +295,44 @@ class ApplicationViews extends Component {
             users={this.state.users} />;
         }}
         />
-        <Route
-          exact
-          path="/events"
-          render={props => {
-            return <EventsList
-              {...props}
+        <Route exact path="/events" render={props => {
+          if (this.isAuthenticated()) {
+            return <EventsList {...props}
               events={this.state.events}
-              deleteEvents={this.deleteEvents} />;
+              deleteEvents={this.deleteEvents} />
+          } else {
+            return <Redirect to="/login" />
+          }
+        }}
+        />
+        <Route exact path="/events/new" render={props => {
+            if (this.isAuthenticated()) {
+              return <EventsForm {...props} addEvent={this.addEvent} />
+            } else {
+              return <Redirect to="/login" />
+            }
           }}
         />
-        <Route
-          exact
-          path="/events/new"
+        <Route path="/events/edit/:eventId(\d+)"
           render={props => {
-            return <EventsForm {...props} addEvent={this.addEvent} />;
-          }}
-        />
-         <Route path="/events/edit/:eventId(\d+)"
-          render={props => {
-            return <EventsEdit {...props}
-              events={this.state.events}
-              editEvents={this.editEvents} />
+            if (this.isAuthenticated()) {
+              return <EventsEdit {...props}
+                events={this.state.events}
+                editEvents={this.editEvents} />
+            } else {
+              return <Redirect to="/login" />
+            }
           }} />
+        <Route path="/events/:eventsId(\d+)" render={(props) => {
+          if (this.isAuthenticated()) {
+            return <EventsDetail {...props}
+              events={this.state.events}
+              deleteEvents={this.deleteEvents}
+            />
+          } else {
+            return < Redirect to = "/login" />
+            }
+        }} />
       </React.Fragment>
     );
   }
