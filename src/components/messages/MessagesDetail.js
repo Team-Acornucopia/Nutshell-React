@@ -1,4 +1,6 @@
 import React, { Component } from "react"
+import { Button, Card, Image } from 'semantic-ui-react'
+import { Link } from "react-router-dom";
 
 export default class MessagesDetail extends Component {
     // animalOwners(animal) {
@@ -27,9 +29,10 @@ export default class MessagesDetail extends Component {
                 <div key={messages.id} className="card">
                     <div className="card-body">
                         <div className="card-title">
-                            <h1>Title: {messages.title}</h1>
-                            <h2>URL: {messages.url}</h2>
-                            <p>Synopsis: {messages.synopsis}</p>
+                            <h1>User: {messages.userId}</h1>
+                            <h2>Message: {messages.message}</h2>
+                            <p>Date: {messages.date}</p>
+                            <Button as={Link} size="tiny" color="yellow" className="card-link" to={`/messages/`}>Back</Button>
                         </div>
                         
                     </div>
