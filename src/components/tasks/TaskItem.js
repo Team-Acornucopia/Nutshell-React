@@ -6,10 +6,8 @@ export default class TaskItem extends Component {
 
   state = {
     editedTask: "",
-    // completed: null,
     editButton: "",
     editTextBox: "",
-    // checkbox: null
     showTaskUpdate: false,
     taskUpdateValue: ""
 
