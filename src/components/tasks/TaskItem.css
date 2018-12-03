@@ -16,3 +16,9 @@
 .visible {
   visibility: visible;
 }
+
+.task {
+  list-style-type: none;
+  padding: 8px;
+  margin: 5px;
+}

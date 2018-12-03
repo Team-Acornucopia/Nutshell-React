@@ -116,7 +116,7 @@ export default class TaskItem extends Component {
     }
 
     return (
-      <li id={this.props.itemId} key={this.props.thing.id}>
+      <li id={this.props.itemId} key={this.props.thing.id} className="task">
         <input
           id="completed"
           className="unchecked"
@@ -124,7 +124,8 @@ export default class TaskItem extends Component {
           onClick={this.handleCheckBoxChange}
           type="checkbox"
         />
-        {this.props.thing.task}
+        {this.props.thing.task}, completion: {this.props.thing.date}
+        <br></br>
         <a
           href="#!"
           id={this.props.editButton_itemId}
@@ -138,7 +139,7 @@ export default class TaskItem extends Component {
           Edit
         </a>
         {taskForm}
-        
+
         <button
           className=""
           onClick={() => {
