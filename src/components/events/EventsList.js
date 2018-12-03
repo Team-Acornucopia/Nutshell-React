@@ -20,8 +20,8 @@ export default class EventsList extends Component {
           </Button>
         </section>
         <section className="events list">
-          {this.props.events.map(evt => (
-            <EventsCard key={evt.id} evt={evt} {...this.props} />
+          {this.props.events.map((evt, i) => (
+            <EventsCard key={evt.id} evt={evt} highlight={i === 0} {...this.props} />
           ))}
         </section>
       </React.Fragment>
