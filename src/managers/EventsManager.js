@@ -13,6 +13,9 @@ class EventsManager extends APIManager {
   addAndList(newMessage) {
       return this.post(newMessage).then(() => this.all())
   }
+  patchAndListEvent(payload, url) {
+    return this.patch(payload, url).then(() => this.allSortedSoonest())
+  }
 }
 
 export default new EventsManager("events")
