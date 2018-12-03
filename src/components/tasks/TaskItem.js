@@ -9,8 +9,9 @@ export default class TaskItem extends Component {
     editButton: "",
     editTextBox: "",
     showTaskUpdate: false,
-    taskUpdateValue: ""
-
+    taskUpdateValue: "",
+    showTaskDateUpdate: false,
+    taskDateUpdateValue: ""
   }
 
   //#1
@@ -34,14 +35,16 @@ export default class TaskItem extends Component {
     // create the object to send to patch function
     const toEdit = {
       // id: this.props.thing.id,
-      task: this.state.taskUpdateValue
+      task: this.state.taskUpdateValue,
+      date: this.state.taskDateUpdateValue
     };
     console.log(toEdit);
     // send to patch
     // this.props.editTask(toEdit)
     this.props.editTask(toEdit, this.props.thing.id);
     this.setState({
-      showTaskUpdate: !this.state.showTaskUpdate
+      showTaskUpdate: !this.state.showTaskUpdate,
+      showTaskDateUpdate: !this.state.showTaskDateUpdate
     })
   };
 
@@ -118,8 +121,10 @@ export default class TaskItem extends Component {
 
 
     // zac - trying a new way to edit
-    const { showTaskUpdate, taskUpdateValue } = this.state;
+    const { showTaskUpdate, taskUpdateValue, showTaskDateUpdate, taskDateUpdateValue } = this.state;
     let taskForm = "";
+    // let taskEditDate = "";
+
     if (showTaskUpdate) {
       taskForm = (
         <form onSubmit={this.editSubmit}>
@@ -130,12 +135,38 @@ export default class TaskItem extends Component {
             value={taskUpdateValue}
             onChange={this.onChange}
           />
+            <input
+            type="date"
+            name="taskDateUpdateValue"
+            // placeholder="edit the task"
+            value={taskDateUpdateValue}
+            onChange={this.onChange}
+          />
           <button>Submit Edit</button>
         </form>
       );
     } else {
       taskForm = null;
     }
+
+    // const { showTaskDateUpdate, taskDateUpdateValue } = this.state;
+    // let taskEditDate = "";
+    // if (showTaskDateUpdate) {
+    //   taskEditDate = (
+    //     <form onSubmit={this.editSubmit}>
+    //       <input
+    //         type="date"
+    //         name="taskDateUpdateValue"
+    //         // placeholder="edit the task"
+    //         value={taskDateUpdateValue}
+    //         onChange={this.onChange}
+    //       />
+    //       <button>Submit Edit</button>
+    //     </form>
+    //   );
+    // } else {
+    //   taskEditDate = null;
+    // }
 
 
 
@@ -148,13 +179,15 @@ export default class TaskItem extends Component {
           id={this.props.editButton_itemId}
           onClick={() =>
             this.setState({
-              showTaskUpdate: !this.state.showTaskUpdate
+              showTaskUpdate: !this.state.showTaskUpdate,
+              showTaskDateUpdate: !this.state.showTaskDateUpdate
             })
           }
         >
           Edit
   </a>
         {taskForm}
+        {/* {taskEditDate} */}
         {/* <input id="editButton" type="text" placeholder="Edit task" onChange={this.handleFieldChange}></input> */}
         {/* <button onClick={this.constructEditedTask}>Submit Edit</button> */}
         <button

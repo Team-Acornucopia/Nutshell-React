@@ -19,6 +19,11 @@ export default class TaskForm extends Component {
     this.setState(stateToChange)
   }
 
+  // handleDateFieldChange = evt => {
+  //   const stateToChange = {}
+  //   stateToChange[evt.target.id] = evt.target.value
+  //   this.setState(stateToChange)
+  // }
 
   constructNewTask = () => {
     // evt.preventDefault()
@@ -38,7 +43,7 @@ export default class TaskForm extends Component {
     return (
       <div className="taskForm">
         <input id="taskItem" type="text" placeholder="New Task" onChange={this.handleFieldChange} />
-        <input type="date" placeholder="New Task" />
+        <input id="taskDate" type="date"  onChange={this.handleFieldChange} />
         <button onClick={this.constructNewTask}>
           +
         </button>
