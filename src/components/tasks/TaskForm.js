@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form } from "semantic-ui-react";
+import { Form, Button } from "semantic-ui-react";
 
 //The problem with this component I believe is that the state of the value is not being
 //changed properly, everytime you write in the text input it will break.
@@ -33,12 +33,24 @@ export default class TaskForm extends Component {
       <div className="taskForm">
         {/* <input id="taskItem" type="text" placeholder="New Task" onChange={this.handleFieldChange} /> */}
         <Form onChange={this.handleFieldChange}>
-          <Form.Field  type="text" />
           <label>New Task</label>
-          <input id="taskItem" placeholder="What do you want to accomplish?" />
+          <Form.Group>
+            {/* <Form.Field type="text" /> */}
+            <Form.Input
+              width={5}
+              id="taskItem"
+              placeholder="What do you want to accomplish?"
+            />
+            <Form.Input
+              width={3}
+              id="taskDate"
+              type="date"
+              onChange={this.handleFieldChange}
+            />
+            <Button color="blue" size="small" onClick={this.constructNewTask}>+</Button>
+          </Form.Group>
         </Form>
-        <input id="taskDate" type="date" onChange={this.handleFieldChange} />
-        <button onClick={this.constructNewTask}>+</button>
+        {/* <input id="taskDate" type="date" onChange={this.handleFieldChange} /> */}
       </div>
     );
   }

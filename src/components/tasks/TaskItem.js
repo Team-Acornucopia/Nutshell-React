@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./TaskItem.css";
+import { Button } from "semantic-ui-react"
 // import TasksManager from '../../managers/TasksManager';
 
 export default class TaskItem extends Component {
@@ -107,7 +108,7 @@ export default class TaskItem extends Component {
             value={taskDateUpdateValue}
             onChange={this.onChange}
           />
-          <button>Submit Edit</button>
+          <Button>Submit Edit</Button>
         </form>
       );
     } else {
@@ -137,15 +138,16 @@ export default class TaskItem extends Component {
           Edit
         </a>{" "}
         <p className="listP">
-          completion: {this.props.thing.date}{" "}
-          <button
+          Completion: {this.props.thing.date}{" "}
+          <Button
+            size="mini"
             className=""
             onClick={() => {
               this.props.deleteTask(this.props.thing.id);
             }}
           >
             Delete
-          </button>{" "}
+          </Button>{" "}
         </p>
         {taskForm}
       </li>

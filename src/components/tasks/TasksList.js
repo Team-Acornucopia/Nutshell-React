@@ -25,7 +25,7 @@ export default class TasksList extends Component {
 
     return (
       <div>
-        <h3>Tasks: </h3>
+        {/* <h3>Tasks: </h3> */}
         <TaskForm
           addTask={this.props.addTask}
           setTaskItemState={this.props.setTaskItemState}
