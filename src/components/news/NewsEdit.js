@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-
+import { Button, Card, Image } from 'semantic-ui-react'
+import { Link } from "react-router-dom";
 class NewsEdit extends Component {
     // state = {
     //     animalName: "",
@@ -155,7 +156,8 @@ class NewsEdit extends Component {
                         {/* </div> */}
                     {/* </div> */}
 
-                    <button type="submit" className="btn btn-primary" onClick={this.editSubmittedArticle}>Edit Article</button>
+                    <Button type="submit" size="tiny" color="green" className="btn btn-primary" onClick={this.editSubmittedArticle}>Edit Article</Button>
+                    <Button as={Link} size="tiny" color="yellow" className="card-link" to={`/news/`}>Back</Button>
 
                 </form>
             </div>
