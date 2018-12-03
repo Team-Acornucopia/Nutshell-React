@@ -18,16 +18,10 @@ export default class NewsForm extends Component {
 
     constructNewMessage = evt => {
         evt.preventDefault()
-        // if (this.state.employee === "") {
-        //     window.alert("Please select a caretaker")
-        // } else {
             const messages = {
                 message: this.state.message,
                 date: new Date(),
                 userId: sessionStorage.getItem("username")
-                // employeeId: this.props.employees.find(e => e.name === this.state.employee).id
-            // }
-
         }
         this.props.addMessage(messages).then(() => this.props.history.push("/messages"))
     }
@@ -44,16 +38,6 @@ export default class NewsForm extends Component {
                                id="message"
                                placeholder="message" />
                     </div>
-                    {/* <div className="form-group">
-                        <label htmlFor="employee">Assign to caretaker</label>
-                        <select defaultValue="" name="employee" id="employee"
-                                onChange={this.handleFieldChange}>
-                            <option value="">Select an employee</option>
-                        {
-                            this.props.employees.map(e => <option key={e.id} id={e.id}>{e.name}</option>)
-                        }
-                        </select>
-                    </div> */}
                     <Button type="submit" onClick={this.constructNewMessage} className="btn btn-primary">Submit</Button>
                 </form>
             </React.Fragment>
