@@ -9,20 +9,20 @@ export default class EventsCard extends Component {
     let prominent = ""
     let cardColor = ""
     if (this.props.highlight) {
-      prominent="prominent card-title"
+      prominent="prominent card-body"
       cardColor="green"
     } else {
-      prominent = "card-title"
+      prominent = "card-body"
       cardColor= null
     }
 
     
       return (
-          <Card.Group>
+          <Card.Group className="eventsCardGroup">
 
-              <Card key={this.props.evt.id} className="card" color={cardColor}>
-                  <Card.Content className="card-body">
-                      <Card.Header className={prominent}>Event: {this.props.evt.name}</Card.Header>
+              <Card key={this.props.evt.id} className="eventsCard" color={cardColor}>
+                  <Card.Content className={prominent}>
+                      <Card.Header className="card-title">Event: {this.props.evt.name}</Card.Header>
                           <Card.Meta>Date: {this.props.evt.date} </Card.Meta>
                           <Card.Description>Time: {this.props.evt.time}</Card.Description>
                           <Card.Description>Location: {this.props.evt.location}</Card.Description>

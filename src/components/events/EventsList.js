@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import EventsCard from "./EventsCard";
 import { Button } from 'semantic-ui-react'
 
 export default class EventsList extends Component {
   render() {
+    let currentUser = sessionStorage.getItem("username")
+    let getFirstOne = false
+    let highlight = false
     return (
       <React.Fragment>
         <section className="eventsButton">
@@ -20,9 +22,23 @@ export default class EventsList extends Component {
           </Button>
         </section>
         <section className="events list">
-          {this.props.events.map((evt, i) => (
-            <EventsCard key={evt.id} evt={evt} highlight={i === 0} {...this.props} />
-          ))}
+          {
+           
+            this.props.events.map(evt => {
+              if (evt.userId === currentUser) {
+                if (getFirstOne === true) {
+                  highlight = false
+                  
+                } else {
+                  getFirstOne= true
+                  highlight= true
+                }
+                return <EventsCard key={evt.id} evt={evt} highlight={highlight} {...this.props} />
+              } else {
+                return null
+              }
+            })
+          }
         </section>
       </React.Fragment>
     );

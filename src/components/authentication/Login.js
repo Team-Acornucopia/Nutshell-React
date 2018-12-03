@@ -79,7 +79,7 @@ export default class Login extends Component {
             type="text"
             id="username"
             placeholder="username"
-            required=""
+            required
             autoFocus=""
             // ref="userField"
           />
@@ -89,7 +89,7 @@ export default class Login extends Component {
             type="password"
             id="password"
             placeholder="password"
-            required=""
+            required
             // ref="passField"
           />
 
