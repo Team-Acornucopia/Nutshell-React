@@ -16,3 +16,15 @@
   width: 50%;
   align-items: center;
 }
+
+.card {
+  background-color: lavender !important;
+  border: 1px solid black !important;
+  text-align: center;
+
+}
+
+.newsCardGroup {
+  display: flex !important;
+  justify-content: center !important;
+}

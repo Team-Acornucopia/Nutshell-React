@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import NewsCard from "./NewsCard"
 import { Button } from 'semantic-ui-react'
+import "./News.css"
 
 export default class NewsList extends Component {
     render() {
