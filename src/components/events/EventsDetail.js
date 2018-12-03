@@ -2,7 +2,8 @@ import React, { Component } from "react"
 import { Button, Card, Image } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
 
-export default class NewsDetail extends Component {
+
+export default class EventsDetails extends Component {
     // animalOwners(animal) {
     //     const ao = this.props.animalsOwned
     //     const own = this.props.owners
@@ -23,16 +24,17 @@ export default class NewsDetail extends Component {
 
     render() {
 
-        const news = this.props.news.find(a => a.id === parseInt(this.props.match.params.newsId)) || {}
+        const events = this.props.events.find(a => a.id === parseInt(this.props.match.params.eventsId)) || {}
         return (
-            <section className="news details">
-                <div key={news.id} className="card">
+            <section className="events details">
+                <div key={events.id} className="card">
                     <div className="card-body">
                         <div className="card-title">
-                            <h1>Title: {news.title}</h1>
-                            <h2>URL: {news.url}</h2>
-                            <p>Synopsis: {news.synopsis}</p>
-                            <Button as={Link} size="tiny" color="yellow" className="card-link" to={`/news/`}>Back</Button>
+                            <h1>Name: {events.name}</h1>
+                            <h2>Date: {events.date}</h2>
+                            <h2>Location: {events.location}</h2>
+                            <p>Time: {events.time}</p>
+                            <Button as={Link} size="tiny" color="yellow" className="card-link" to={`/events/`}>Back</Button>
                         </div>
                         
                     </div>

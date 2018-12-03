@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { Button, Card, Image } from 'semantic-ui-react'
+import { Link } from "react-router-dom";
 
- 
 class EventsEdit extends Component {
   
      state = {
@@ -80,7 +81,8 @@ class EventsEdit extends Component {
                         <input type="text" required className="form-control" onChange={this.handleFieldChange} id="location" value={this.state.location} />
                     </div>
               
-                     <button type="submit" className="btn btn-primary" onClick={this.editSubmittedEvent}>Edit Event</button>
+                     <Button type="submit" size="tiny" color="green" className="btn btn-primary" onClick={this.editSubmittedEvent}>Edit Event</Button>
+                     <Button as={Link} size="tiny" color="yellow" className="card-link" to={`/events/`}>Back</Button>
                  </form>
             </div>
         );

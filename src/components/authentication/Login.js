@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Checkbox, Form } from "semantic-ui-react";
 import UserManager from "../../managers/UserManager";
+import { Link } from "react-router-dom";
 
 // would like to break this into two separate pages - one for login and one for registration, but this is functional for now
 // write a function to clear fields after submit pressed
@@ -96,6 +97,7 @@ export default class Login extends Component {
             Sign in
           </Button>
         </form>
+        <Button as={Link} size="tiny" color="black" className="card-link" to={`/register/`}>Need To Register? Click here.</Button>
       </React.Fragment>
     );
   }
