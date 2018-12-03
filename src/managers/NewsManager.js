@@ -5,7 +5,7 @@ class NewsManager extends APIManager {
     return this.get(id)
   }
   getAll() {
-    return this.all()
+    return this.allSortedFurthest()
   }
   removeAndList(id) {
     return this.delete(id).then(() => this.all())
@@ -23,7 +23,7 @@ class NewsManager extends APIManager {
   //   }).then(data => data.json())
   // }
   patchAndListNews(payload, url) {
-    return this.patch(payload, url).then(() => this.all ())
+    return this.patch(payload, url).then(() => this.allSortedFurthest())
   }
 }
 

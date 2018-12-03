@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class NewsEdit extends Component {
+class MessagesEdit extends Component {
     // state = {
     //     animalName: "",
     //     type: "",
@@ -9,9 +9,7 @@ class NewsEdit extends Component {
     // }
 
     state = {
-        title: "",
-        synopsis: "",
-        url: "",
+        message: "",
         date: "",
         userId: "",
         id: ""
@@ -43,13 +41,11 @@ class NewsEdit extends Component {
     componentDidMount() {
         // store the existing values in state to start
         let newState = {}
-        let news = this.props.news.find(news => news.id === parseInt(this.props.match.params.newsId))
-        console.log(news)
-        newState.title = news.title
-        newState.synopsis = news.synopsis
-        newState.url = news.url
-        newState.date = news.date
-        newState.id = news.id
+        let messages = this.props.messages.find(messages => messages.id === parseInt(this.props.match.params.messagesId))
+        console.log(messages)
+        newState.message = messages.message
+        newState.date = messages.date
+        newState.id = messages.id
         newState.userId = sessionStorage.getItem("username")
         // let owners = this.props.animalOwners
         //   .filter(relation => relation.animalId === animal.id)
@@ -70,7 +66,7 @@ class NewsEdit extends Component {
     //     );
 
         
-    editSubmittedArticle = e => {
+    editSubmittedMessage = e => {
         // prepare objects for editing database
         e.preventDefault()
         const news = {
@@ -78,9 +74,7 @@ class NewsEdit extends Component {
             // type: this.state.type,
             // userId: sessionStorage.getItem("username"),
             // id: this.props.match.params.animalId
-            title: this.state.title,
-            synopsis: this.state.synopsis,
-            url: this.state.url,
+            message: this.state.message,
             date: this.state.date,
             userId: sessionStorage.getItem("username"),
             id: this.state.id
@@ -88,32 +82,20 @@ class NewsEdit extends Component {
         // const owners = this.state.owners
         // console.log("animal", news)
         // return this.props.editAnimal(news, owners)
-        let newsURL = "http://localhost:5002/news/"
-        console.log(`${newsURL}${this.state.id}`)
-        return this.props.editArticle(news, `${newsURL}${this.state.id}`)
-            .then(() => this.props.history.push("/news"))
+        let messagesURL = "http://localhost:5002/messages/"
+        console.log(`${messagesURL}${this.state.id}`)
+        return this.props.editMessage(news, `${messagesURL}${this.state.id}`)
+            .then(() => this.props.history.push("/messages"))
     }
 
     render() {
 
         return (
             <div className="container">
-                <form className="editArticleForm">
+                <form className="editMessageForm">
                     <div className="form-group">
-                        <label htmlFor="articleTitle">Change Article Title</label>
-                        <input type="text" required className="form-control" onChange={this.handleFieldChange} id="title" value={this.state.title} />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="articleSynopsis">Change Article Synopsis</label>
-                        <input type="text" required className="form-control" onChange={this.handleFieldChange} id="synopsis" value={this.state.synopsis} />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="articleURL">Change Article URL</label>
-                        <input type="url" required className="form-control" onChange={this.handleFieldChange} id="url" value={this.state.url} />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="articleDate">Change Article Date</label>
-                        <input type="date" required className="form-control" onChange={this.handleFieldChange} id="date" value={this.state.date} />
+                        <label htmlFor="submittedMessage">Change Message</label>
+                        <input type="text" required className="form-control" onChange={this.handleFieldChange} id="message" value={this.state.message} />
                     </div>
                     {/* <div className="row"> */}
                     
@@ -155,7 +137,7 @@ class NewsEdit extends Component {
                         {/* </div> */}
                     {/* </div> */}
 
-                    <button type="submit" className="btn btn-primary" onClick={this.editSubmittedArticle}>Edit Article</button>
+                    <button type="submit" className="btn btn-primary" onClick={this.editSubmittedMessage}>Edit Message</button>
 
                 </form>
             </div>
@@ -163,4 +145,4 @@ class NewsEdit extends Component {
     }
 }
 
-export default NewsEdit
+export default MessagesEdit

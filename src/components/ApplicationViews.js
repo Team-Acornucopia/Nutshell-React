@@ -9,7 +9,8 @@ import NewsEdit from "./news/NewsEdit"
 import NewsManager from "../managers/NewsManager";
 import MessagesList from "./messages/MessagesList";
 import MessagesForm from "./messages/MessagesForm";
-// import MessagesDetail from "./messages/MessagesDetail";
+import MessagesDetail from "./messages/MessagesDetail";
+import MessagesEdit from "./messages/MessagesEdit"
 import MessagesManager from "../managers/MessagesManager";
 import EventsList from "./events/EventsList";
 import EventsForm from "./events/EventsForm";
@@ -139,6 +140,15 @@ class ApplicationViews extends Component {
         })
       );
 
+  editMessage = (messages, url) =>
+    MessagesManager.patchAndListMessages(messages, url)
+      .then(() => MessagesManager.all())
+      .then(messages =>
+        this.setState({
+          messages: messages
+        })
+      );
+
   deleteMessage = id => {
     return MessagesManager.removeAndList(id).then(messages =>
       this.setState({
@@ -196,6 +206,18 @@ class ApplicationViews extends Component {
           />
         }}
         />
+        <Route path="/messages/:messagesId(\d+)" render={(props) => {
+          return <MessagesDetail {...props}
+            messages={this.state.messages}
+            deleteMessage={this.deleteMessage}
+          />
+        }} />
+        <Route path="/messages/edit/:messagesId(\d+)"
+          render={props => {
+            return <MessagesEdit {...props}
+              messages={this.state.messages}
+              editMessage={this.editMessage} />
+          }} />
         <Route exact path="/tasks" render={(props) => {
           return <TasksList {...props}
             // taskItem={this.state.taskItem}
