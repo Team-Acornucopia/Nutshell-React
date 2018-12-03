@@ -21,6 +21,4 @@ class UserManager extends APIManager {
   }
 }
 
-// why are we exporting an instance rather than default?
-
 export default new UserManager("user")

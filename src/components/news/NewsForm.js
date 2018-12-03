@@ -20,16 +20,12 @@ export default class NewsForm extends Component {
 
     constructNewArticle = evt => {
         evt.preventDefault()
-        // if (this.state.employee === "") {
-        //     window.alert("Please select a caretaker")
-        // } else {
             const news = {
                 title: this.state.title,
                 synopsis: this.state.synopsis,
                 url: this.state.url,
                 date: this.state.date,
                 userId: sessionStorage.getItem("username")
-            // }
 
         }
         this.props.addArticle(news).then(() => this.props.history.push("/news"))
@@ -69,16 +65,6 @@ export default class NewsForm extends Component {
                                onChange={this.handleFieldChange}
                                id="date" placeholder="date" />
                     </div>
-                    {/* <div className="form-group">
-                        <label htmlFor="employee">Assign to caretaker</label>
-                        <select defaultValue="" name="employee" id="employee"
-                                onChange={this.handleFieldChange}>
-                            <option value="">Select an employee</option>
-                        {
-                            this.props.employees.map(e => <option key={e.id} id={e.id}>{e.name}</option>)
-                        }
-                        </select>
-                    </div> */}
                     <Button type="submit" onClick={this.constructNewArticle} className="btn btn-primary">Submit</Button>
                 </form>
             </React.Fragment>

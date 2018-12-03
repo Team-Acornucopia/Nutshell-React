@@ -3,26 +3,7 @@ import { Button, Card, Image } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
 
 export default class MessagesDetail extends Component {
-    // animalOwners(animal) {
-    //     const ao = this.props.animalsOwned
-    //     const own = this.props.owners
-    //     const ownerNameArr = []
-
-    //     ao.forEach(animalOwner => {
-    //         if (animal.id === animalOwner.animalId) {
-    //             let petOwnerId = animalOwner.ownerId
-    //             own.forEach(owner => {
-    //                 if (owner.id === petOwnerId) {
-    //                     ownerNameArr.push(owner.name)
-    //                 }
-    //             })
-    //         }
-    //     })
-    //     return ` Owner(s): ${ownerNameArr.join(" and ")}`
-    // }
-
     render() {
-
         const messages = this.props.messages.find(a => a.id === parseInt(this.props.match.params.messagesId)) || {}
         return (
             <section className="messages details">
