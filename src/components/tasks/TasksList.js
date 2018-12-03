@@ -23,7 +23,7 @@ export default class TasksList extends Component {
       // console.log(currentTask)
       return (
         // <div>
-        <TaskItem deleteTask={this.props.deleteTask} editTask={this.props.editTask} getTask={this.props.getTask} thing={currentTask} key={currentTask.id} />
+        <TaskItem deleteTask={this.props.deleteTask} editTask={this.props.editTask} thing={currentTask} key={currentTask.id} />
         // {/* <button id="editButton"  onChange={this.handleFieldChange} >WOOHOO</button>
         // </div> */}
       )
