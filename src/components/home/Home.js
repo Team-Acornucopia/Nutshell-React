@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import chipmunk from "../../../src/chipmunk.gif";
+import "./Home.css"
 
 
 export default class Home extends Component {
@@ -17,10 +18,12 @@ export default class Home extends Component {
     }
 
     return (
-      <div>
-        <h1>Welcome to Nutshell!</h1>
-        <img src={chipmunk} alt="nutshell_boi" />
-        <p>{greeting}</p>
+      <div className="homeContainer">
+        <div>
+          <h1>Welcome to Nutshell!</h1>
+          <img src={chipmunk} alt="nutshell_boi" />
+          <p>{greeting}</p>
+        </div>
       </div>
     );
   }

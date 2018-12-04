@@ -1,12 +1,13 @@
 import React, { Component } from "react"
 import { Button, Message, Image } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
-import "./LoggedInUsersMessages.css"
+import "./Messages.css"
 
 export default class LoggedInUsersMessages extends Component {
     render() {
         return (
-            <Message key={this.props.message.id} className="loggedInUsersMessage">
+          <div className="userMessageContainer">
+            <Message key={this.props.message.id} className="loggedInUsersMessageCards">
                 <h5 className="card-title">
                     <Message.Header>{this.props.message.userId}</Message.Header>
                     <p>{this.props.message.message}</p>
@@ -17,6 +18,7 @@ export default class LoggedInUsersMessages extends Component {
                         className="card-link">Delete</Button>
                 </h5>
             </Message>
+          </div>
         )
     }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Button } from 'semantic-ui-react'
+import "./Messages.css"
 
 export default class NewsForm extends Component {
     // Set initial state
@@ -29,9 +30,10 @@ export default class NewsForm extends Component {
     render() {
         return (
             <React.Fragment>
-                <form className="messageForm">
+                <form className="messagesForm">
                     <div className="form-group">
                         <label htmlFor="message">Message</label>
+                        <br />
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}

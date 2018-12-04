@@ -3,6 +3,7 @@ import LoggedInUsersMessages from "./LoggedInUsersMessages"
 import FriendsMessages from "./FriendsMessages"
 import NotFriendsMessages from "./NotFriendsMessages"
 import { Button } from 'semantic-ui-react'
+import "./Messages.css"
 
 export default class MessagesList extends Component {
     render() {
