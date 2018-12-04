@@ -44,29 +44,29 @@ export default class NewsForm extends Component {
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="title"
-                               placeholder="title" />
+                               placeholder="Input Article Title Here..." />
                     </Form.Field>
                     <Form.Field className="form-group">
                         <label htmlFor="url">Url</label>
                         <input type="url" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="url" placeholder="url" />
+                               id="url" placeholder="Input Article URL Here..." />
                     </Form.Field>
                     <Form.Field className="form-group">
                         <label htmlFor="synopsis">Synopsis</label>
-                        <input type="textarea" required
+                        <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="synopsis"
-                               placeholder="synopsis" />
+                               placeholder="Input Article Synopsis Here..." />
                     </Form.Field>
                     <Form.Field className="form-group">
-                        <label htmlFor="date">Date</label>
+                        <label htmlFor="date">Select Article Submission Date</label>
                         <input type="date" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="date" placeholder="date" />
+                               id="date" placeholder="Choose Article Date Here..." />
                     </Form.Field>
                     {/* <div className="form-group">
                         <label htmlFor="employee">Assign to caretaker</label>

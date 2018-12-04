@@ -1,13 +1,13 @@
 import React, { Component } from "react"
 import { Button, Card, Image, CardHeader } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
-import "./News.css"
+import "./FriendsNews.css"
 
 export default class NewsCard extends Component {
     render() {
         return (
             <Card.Group className="newsCardGroup">
-                <Card key={this.props.story.id} className="newsCard">
+                <Card key={this.props.story.id} className="friendsNewsCard">
                     <Card.Content className="card-body">
                         <h5 className="card-title">
                             <Card.Header>{this.props.story.userId}'s Submitted Article:</Card.Header>

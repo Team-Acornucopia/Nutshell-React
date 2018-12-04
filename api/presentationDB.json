@@ -1,0 +1,400 @@
+{
+  "user": [
+    {
+      "username": "zac",
+      "password": "saban",
+      "id": 1
+    },
+    {
+      "username": "kazathur92",
+      "password": "kazathur",
+      "id": 2
+    },
+    {
+      "username": "dillonWilliams",
+      "password": "12345",
+      "id": 3
+    },
+    {
+      "username": "Robby",
+      "password": "Hello",
+      "id": 4
+    },
+    {
+      "username": "ousama",
+      "password": "ousama",
+      "id": 5
+    },
+    {
+      "username": "michael",
+      "password": "cam",
+      "id": 6
+    },
+    {
+      "username": "Elyse",
+      "password": "sega",
+      "id": 7
+    },
+    {
+      "username": "Brendan",
+      "password": "rocketleague",
+      "id": 8
+    },
+    {
+      "username": "Daniel",
+      "password": "jeskai",
+      "id": 9
+    },
+    {
+      "username": "Brad",
+      "password": "bossman",
+      "id": 10
+    },
+    {
+      "username": "Justina",
+      "password": "pizza",
+      "id": 11
+    },
+    {
+      "username": "Richard",
+      "password": "bsb",
+      "id": 12
+    },
+    {
+      "username": "Max",
+      "password": "brandnew",
+      "id": 13
+    }
+  ],
+  "friends": [
+    {
+      "friendname": "ousama",
+      "username": "zac",
+      "id": 1
+    },
+    {
+      "friendname": "dillonWilliams",
+      "username": "zac",
+      "id": 2
+    },
+    {
+      "friendname": "Robby",
+      "username": "zac",
+      "id": 3
+    },
+    {
+      "friendname": "michael",
+      "username": "ousama",
+      "id": 4
+    },
+    {
+      "friendname": "dillonWilliams",
+      "username": "ousama",
+      "id": 5
+    },
+    {
+      "friendname": "Robby",
+      "username": "ousama",
+      "id": 6
+    },
+    {
+      "friendname": "kazathur92",
+      "username": "ousama",
+      "id": 7
+    }
+  ],
+  "messages": [
+    {
+      "message": "war smeagol",
+      "userId": "ousama",
+      "date": "12/03/2018",
+      "id": 1
+    },
+    {
+      "message": "pipi cam",
+      "userId": "michael",
+      "date": "12/02/2018",
+      "id": 2
+    },
+    {
+      "message": "ROLL TIDE",
+      "userId": "zac",
+      "date": "12/02/2018",
+      "id": 3
+    },
+    {
+      "message": "hey everyone",
+      "userId": "zac",
+      "date": "11/31/2018",
+      "id": 4
+    },
+    {
+      "message": "zac is cool",
+      "userId": "zac",
+      "date": "12/01/2018",
+      "id": 5
+    },
+    {
+      "message": "It's My Birthday!",
+      "date": "12/04/2018",
+      "userId": "Robby",
+      "id": 6
+    },
+    {
+      "message": "drew brees sucks",
+      "date": "2018-12-04T04:47:32.150Z",
+      "userId": "dillonWilliams",
+      "id": 7
+    },
+    {
+      "message": "jalapeños are spicy!",
+      "date": "2018-12-04T04:47:32.150Z",
+      "userId": "kazathur92",
+      "id": 8
+    },
+    {
+      "message": "when my son grows up, I want him to be dak",
+      "date": "2018-11-15T05:08:40.298Z",
+      "userId": "dillonWilliams",
+      "id": 9
+    },
+    {
+      "message": "Dillon, go to bed...It's late",
+      "date": "2018-11-15T05:09:54.728Z",
+      "userId": "zac",
+      "id": 10
+    },
+    {
+      "message": "I just sent my 486th giphy of the day. I'm going for the record boys",
+      "date": "2018-11-15T05:12:07.798Z",
+      "userId": "kazathur92",
+      "id": 11
+    },
+    {
+      "message": "I hope Ousama forgets that I owe him Taco Bell...",
+      "date": "2018-11-15T05:20:38.858Z",
+      "userId": "Elyse",
+      "id": 12
+    },
+    {
+      "message": "Anybody wanna get crushed in Rocket League? I will only use my brain.",
+      "date": "2018-11-15T05:34:28.726Z",
+      "userId": "Brendan",
+      "id": 13
+    },
+    {
+      "message": "I could beat all of you in Mario Party with both hands tied behind my back.",
+      "date": "2018-11-15T05:34:54.766Z",
+      "userId": "Richard",
+      "id": 14
+    }
+  ],
+  "news": [
+    {
+      "title": "This isn't a news article, it's a link to my Twitch channel.",
+      "url": "https://www.twitch.tv/siegerhinofanatic",
+      "synopsis": "Watch Me Play Games!",
+      "date": "2018-12-03",
+      "userId": "ousama",
+      "id": 1
+    },
+    {
+      "title": "Why the Cowboys beat the Saints",
+      "url": "https://theathletic.com/689987/2018/12/03/new-orleans-saints-film-room-offensive-line-dallas-cowboys-drew-brees-pressure/",
+      "synopsis": "Eat it, Drew.",
+      "date": "12/04/2018",
+      "userId": "dillonWilliams",
+      "id": 2
+    },
+    {
+      "title": "A Complete Guide to Learning Japanese with Anime",
+      "url": "http://fortune.com/2016/11/07/giphy-gifs-copyright/",
+      "synopsis": "素晴らし!",
+      "date": "12/02/2018",
+      "userId": "kazathur92",
+      "id": 3
+    },
+    {
+      "title": "Who is Tua Tagovailoa? 5 things to know about Alabama’s freshman QB.",
+      "url": "https://www.daytondailynews.com/sports/who-tua-tagovailoa-things-know-about-alabama-freshman/pJk7f7ar4UPYTjmwB7rGzM/",
+      "synopsis": "Everything you'll need to know about my best friend.",
+      "date": "12/01/2018",
+      "userId": "zac",
+      "id": 4
+    },
+    {
+      "title": "Can I Forge a New Pilot's License?",
+      "url": "https://www.rediff.com/business/slide-show/slide-show-1-fake-pilots-and-how-licenses-can-be-forged/20110322.htm",
+      "synopsis": "What To Do If Your Pilot's License Has Expired and You Feel Lazy",
+      "date": "11/26/2018",
+      "userId": "zac",
+      "id": 5
+    },
+    {
+      "title": "Why Can I Sing So Well?",
+      "url": "https://www.howitworksdaily.com/singing-science-why-do-some-people-have-better-voices-than-others/",
+      "synopsis": "I Told You Having a Good Singing Voice Was Just Genetics, Ousama. Nice genes, loser.",
+      "date": "11/29/2018",
+      "userId": "Robby",
+      "id": 5
+    }
+  ],
+  "tasks": [
+    {
+      "task": "Pick up my son from school at 5:00",
+      "date": "11/15/2018",
+      "userId": "dillonWilliams",
+      "id": 1,
+      "completed": false
+    },
+    {
+      "task": "Catch up on daily journals utilizing the knowledge gained from the Nutshell Project",
+      "date": "11/16/2018",
+      "userId": "dillonWilliams",
+      "id": 2,
+      "completed": false
+    },
+    {
+      "task": "Get packed for Atlanta trip this weekend",
+      "date": "11/16/2018",
+      "completed": false,
+      "userId": "dillonWilliams",
+      "id": 3
+    },
+    {
+      "task": "Make more Giphys",
+      "date": "11/15/2018",
+      "userId": "kazathur92",
+      "id": 4,
+      "completed": false
+    },
+    {
+      "task": "Double the output of giphys made from yesterday",
+      "date": "11/16/2018",
+      "userId": "kazathur92",
+      "id": 5,
+      "completed": false
+    },
+    {
+      "task": "Develop 3D giphys and take control of the giphy world",
+      "date": "11/17/2018",
+      "completed": false,
+      "userId": "kazathur92",
+      "id": 6
+    },
+    {
+      "task": "Rock out my show tonight in Nashville",
+      "date": "11/16/2018",
+      "completed": false,
+      "userId": "Robby",
+      "id": 7
+    },
+    {
+      "task": "Teach everyone the pros and cons of using Drano",
+      "date": "11/20/2018",
+      "completed": false,
+      "userId": "Robby",
+      "id": 8
+    },
+    {
+      "task": "Feed Dogs",
+      "date": "11/14/2018",
+      "completed": false,
+      "userId": "ousama",
+      "id": 9
+    },
+    {
+      "task": "Drink 8 cups of tea",
+      "date": "11/17/2018",
+      "completed": false,
+      "userId": "Robby",
+      "id": 10
+    },
+    {
+      "task": "Check local Wifi for hackers",
+      "date": "11/21/2018",
+      "completed": false,
+      "userId": "ousama",
+      "id": 11
+    },
+    {
+      "task": "Lead the team to victory!",
+      "date": "11/15/2018",
+      "completed": false,
+      "userId": "zac",
+      "id": 12
+    },
+    {
+      "task": "Watch the Alabama Game",
+      "date": "11/17/2018",
+      "completed": false,
+      "userId": "zac",
+      "id": 13
+    },
+    {
+      "task": "testing123",
+      "date": "11/30/2018",
+      "completed": false,
+      "userId": "dillonWilliams",
+      "id": 14
+    }
+  ],
+  "events": [
+    {
+      "name": "Cowboys @ Eagles",
+      "date": "2018-12-09",
+      "time": "15:25",
+      "location": "Dallas, Texas",
+      "userId": "dillonWilliams",
+      "id": 1
+    },
+    {
+      "name": "Orange Bowl: Alabama vs Oklahoma",
+      "date": "2018-12-29",
+      "time": "19:00",
+      "location": "Miami Gardens, FL",
+      "userId": "zac",
+      "id": 2
+    },
+    {
+      "name": "Celebrate Robby's Birthday",
+      "date": "2018-12-04",
+      "time": "00:01",
+      "location": "NSS",
+      "userId": "ousama",
+      "id": 3
+    },
+    {
+      "name": "It's My Birthday!",
+      "date": "2018-12-04",
+      "time": "00:00",
+      "location": "Earth",
+      "userId": "Robby",
+      "id": 4
+    },
+    {
+      "name": "Forget to Post a GIF",
+      "date": "2018-12-05",
+      "time": "09:00",
+      "location": "NSS's Slack",
+      "userId": "kazathur92",
+      "id": 5
+    },
+    {
+      "name": "Teach Zac Spanish",
+      "date": "2018-12-06",
+      "time": "16:05",
+      "location": "NSS",
+      "userId": "kazathur92",
+      "id": 6
+    },
+    {
+      "name": "Music City Bowl: Auburn vs Purdue",
+      "date": "2018-12-28",
+      "time": "12:30",
+      "location": "Nashville, TN",
+      "userId": "ousama",
+      "id": 7
+    }
+  ]
+}
