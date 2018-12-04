@@ -1,24 +1,33 @@
-/* .checked {
-   width:15px;
-  height:15px;
-  margin-left: 10px; */
-  /* background-image: url("https://cdn0.iconfinder.com/data/icons/basic-ui-elements-colored/700/010_x-3-512.png"); */
-  /* background-repeat: no-repeat;
-  background-size: 30px;
-  background-position: right top;
-  margin-right:10px; */
-/* } */
-
 .icon {
   width:15px;
   height:15px;
   margin-left: 10px;
-  /* image-orientation: right top; */
-  /* background-image: url("http://icons.iconarchive.com/icons/blackvariant/button-ui-requests-1/1024/Acorn-icon.png");
-  background-repeat: no-repeat;
-  background-size: 10px;
-  background-position: right top;
-  margin-right:0px; */
+}
+
+.newTaskMessageForm {
+display:flex;
+justify-content: space-around;
+border: solid 2px black;
+border-radius: 25px;
+background-color: lightyellow;
+width: 350px;
+}
+
+.newTaskMessageParagraph {
+font-size: 15px;
+font-weight: bold;
+font-style: italic;
+color: lightcoral;
+margin-left: 10px;
+margin-top: -5px;
+margin-bottom: -1px;
+padding: 5px;
+}
+
+.newTaskMessageButton {
+color: red;
+height: 20px;
+width: 20px;
 }
 
 .hidden {
