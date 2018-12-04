@@ -4,12 +4,19 @@ import { Link } from "react-router-dom";
 import "./LoggedInUsersMessages.css";
 
 export default class LoggedInUsersMessages extends Component {
-  render() {
+  
+  
+    render() {
     return (
       <Card.Group>
         <Card key={this.props.message.id} className="loggedInUsersMessage">
           <h5 className="card-title">
             <Card.Header>{this.props.message.userId}</Card.Header>
+            {/* <Image
+                  wrapped
+                  size="small"
+                  src={}
+                /> */}
             <p>{this.props.message.message}</p>
             <Button
               as={Link}
