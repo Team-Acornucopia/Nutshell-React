@@ -23,6 +23,7 @@ import FriendsManager from "../managers/FriendsManager"
 import Login from "./authentication/Login";
 import UserManager from "../managers/UserManager";
 import Register from "./authentication/Register"
+import Home from "./home/Home";
 
 class ApplicationViews extends Component {
   //I added the taskItem property to the state, this doesnt affect the
@@ -356,6 +357,11 @@ class ApplicationViews extends Component {
               return <Redirect to="/login" />
             }
           }} />
+          <Route exact path="/home" render={props => {
+            return <Home />
+          }
+        }
+        />
           <Route exact path="/users" render={(props) => {
             if (this.isAuthenticated()) {
               return <UsersList {...props}
