@@ -7,10 +7,11 @@ export default class FriendsMessages extends Component {
   render() {
     return (
       <Card.Group className="othersMessageContainer">
-        <Card key={this.props.message.id} className="friendsMessageCards">
+        <Card fluid key={this.props.message.id} className="friendsMessageCards">
           <h5 className="card-title">
-            <Card.Header>{this.props.message.userId}</Card.Header>
-            <p>{this.props.message.message}</p>
+            <Card.Header>{this.props.message.userId} said: {this.props.message.message}</Card.Header>
+            <br />
+            <Card.Meta>You are friends!</Card.Meta>
             <Button
               as={Link}
               size="tiny"

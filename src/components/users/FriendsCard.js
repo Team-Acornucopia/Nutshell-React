@@ -40,7 +40,6 @@ export default class FriendsCard extends Component {
               <Image
                 floated="right"
                 size="mini"
-                // src="https://react.semantic-ui.com/images/avatar/large/steve.jpg"
                 src={this.props.user.avatar}
               />
 
