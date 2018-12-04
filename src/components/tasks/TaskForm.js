@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button } from "semantic-ui-react";
+import "./TaskItem.css"
 
 //The problem with this component I believe is that the state of the value is not being
 //changed properly, everytime you write in the text input it will break.
@@ -37,12 +38,12 @@ export default class TaskForm extends Component {
           <Form.Group>
             {/* <Form.Field type="text" /> */}
             <Form.Input
-              width={5}
+              width={6}
               id="taskItem"
               placeholder="What do you want to accomplish?"
             />
             <Form.Input
-              width={3}
+              width={5}
               id="taskDate"
               type="date"
               onChange={this.handleFieldChange}
