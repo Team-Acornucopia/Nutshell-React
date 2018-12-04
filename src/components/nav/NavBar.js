@@ -59,7 +59,7 @@ export default class MenuExampleHeader extends Component {
       <Menu pointing>
         <Menu.Item
           as={Link}
-          to="/"
+          to="/home"
           name="home"
           active={activeItem === "home"}
           onClick={this.handleItemClick}
@@ -100,22 +100,7 @@ export default class MenuExampleHeader extends Component {
           onClick={this.handleItemClick}
         />
         <Menu.Menu position="right">
-          {/* <Menu.Item
-            as={Link}
-            to="/login"   
-            name="login"
-            active={activeItem === "login"}
-            onClick={this.handleItemClick}
-          /> */}
           {logButton}
-          {/* <Menu.Item
-            as={Link}
-            to="/register"
-            name="register"
-            active={activeItem === "register"}
-            onClick={this.handleItemClick}
-          /> */}
-          {/* <Menu.Item as={Link} to="/home" name="logout" onClick={this.logout} /> */}
         </Menu.Menu>
       </Menu>
     );
