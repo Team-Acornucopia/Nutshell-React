@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Button, Card, Image } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
+import "./Events.css"
 
 
 export default class EventsCard extends Component {
@@ -10,7 +11,7 @@ export default class EventsCard extends Component {
     let cardColor = ""
     if (this.props.highlight) {
       prominent="prominent card-body"
-      cardColor="green"
+      cardColor="purple"
     } else {
       prominent = "card-body"
       cardColor= null
