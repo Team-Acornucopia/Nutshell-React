@@ -1,0 +1,26 @@
+.EventsForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lavender;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: 3px solid darkgray;
+  border-radius: 5%;
+}
+
+.form-group {
+  width: 50%;
+  align-items: center;
+}
+
+.loggedInUsersMessage {
+  background-color: lavender !important;
+  border: 1px solid black !important;
+  text-align: center;
+  display: flex !important;
+  justify-content: center !important;
+}

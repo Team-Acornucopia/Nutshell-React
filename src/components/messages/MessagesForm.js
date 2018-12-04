@@ -31,14 +31,14 @@ export default class NewsForm extends Component {
             <React.Fragment>
                 <form className="messageForm">
                     <div className="form-group">
-                        <label htmlFor="message">message</label>
+                        <label htmlFor="message">Message</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="message"
-                               placeholder="message" />
+                               placeholder="Input New Message..." />
                     </div>
-                    <Button type="submit" onClick={this.constructNewMessage} className="btn btn-primary">Submit</Button>
+                    <Button color="green" type="submit" onClick={this.constructNewMessage} className="btn btn-primary">Submit</Button>
                 </form>
             </React.Fragment>
         )

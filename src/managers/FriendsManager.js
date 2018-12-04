@@ -7,15 +7,14 @@ class FriendsManager extends APIManager {
   getAll() {
     return this.all()
   }
-  removeAndList(id) {
-    return this.delete(id).then(() => this.all())
+  removeAndList(oldFriend, user) {
+    return this.delete(oldFriend, user).then(() => this.all())
   }
-  addAndList(newFriend, cake) {
+  addAndList(newFriend, user) {
     let myNewFriend = {
       friendname: newFriend,
-      username: cake
+      username: user
     }
-    console.log(myNewFriend)
       return this.post(myNewFriend).then(() => this.all())
   }
 }
