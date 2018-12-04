@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Image, Header, Modal, Card } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import "./UsersCard.css"
 import "./Friends.css";
 
 export default class FriendsCard extends Component {
@@ -34,7 +35,7 @@ export default class FriendsCard extends Component {
     const { open, dimmer } = this.state;
     return (
       <React.Fragment>
-        <Card.Group>
+        <Card.Group className="friendsCard">
           <Card color='green' key={this.props.user.id} className="card">
             <h5 className="card-title">
               <Image
