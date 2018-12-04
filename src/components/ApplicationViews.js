@@ -36,7 +36,6 @@ class ApplicationViews extends Component {
     // taskItem: "",
     events: [],
     news: [],
-    users: [],
     friends: [],
     users: [],
     initialized: false
