@@ -29,7 +29,6 @@ export default class EventsForm extends Component {
       userId: sessionStorage.getItem("username")
     };
     this.props.addEvent(events).then(() => {
-      // window.location.replace("http://localhost:3000/events")
       this.props.history.push("/events")
     });
   };
