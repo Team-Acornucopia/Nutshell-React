@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import { Button, Image, Card } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import "./NotFriendsMessages.css";
+import "./Messages.css";
 
 export default class NotFriendsMessages extends Component {
   render() {
     let currentUser = sessionStorage.getItem("username");
     return (
-      <Card.Group>
-        <Card key={this.props.message.id} className="notFriendsMessage">
+      <Card.Group className="notOthersMessageContainer">
+        <Card fluid key={this.props.message.id} className="notFriendsMessageCards">
           <h5 className="card-title">
-            <Card.Header>{this.props.message.userId}</Card.Header>
-            <p>{this.props.message.message}</p>
+            <Card.Header>{this.props.message.userId} said: {this.props.message.message}</Card.Header>
+            <br />
+            <Card.Meta>You are not currently friends.</Card.Meta>
             <Button
               as={Link}
               size="tiny"
@@ -23,7 +24,7 @@ export default class NotFriendsMessages extends Component {
             </Button>
             <Button
               size="tiny"
-              color="pink"
+              color="green"
               onClick={() =>
                 this.props.addFriend(this.props.message.userId, currentUser)
               }

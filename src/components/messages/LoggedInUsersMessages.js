@@ -1,23 +1,23 @@
 import React, { Component } from "react";
 import { Button, Message, Image, Card } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import "./LoggedInUsersMessages.css";
+import "./Messages.css"
 
 export default class LoggedInUsersMessages extends Component {
   
   
     render() {
     return (
-      <Card.Group>
-        <Card key={this.props.message.id} className="loggedInUsersMessage">
+      <Card.Group className="userMessageContainer">
+        <Card fluid key={this.props.message.id} className="loggedInUsersMessageCards">
           <h5 className="card-title">
-            <Card.Header>{this.props.message.userId}</Card.Header>
+            <Card.Header>{this.props.message.userId} said: {this.props.message.message}</Card.Header>
+            <br />
             {/* <Image
                   wrapped
                   size="small"
                   src={}
                 /> */}
-            <p>{this.props.message.message}</p>
             <Button
               as={Link}
               size="tiny"
