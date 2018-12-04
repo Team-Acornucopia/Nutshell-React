@@ -1,0 +1,7 @@
+.usersContainer {
+    display: grid;
+    grid-template-areas:
+      "a a a"
+      "b b b";
+  
+  }

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import FriendsCard from "./FriendsCard"
 import UsersCard from "./UsersCard"
 import { Button } from 'semantic-ui-react'
+import "./UsersCard.css"
 
 export default class MessagesList extends Component {
     render() {
@@ -17,7 +18,7 @@ export default class MessagesList extends Component {
         })
         return (
             <React.Fragment>
-                <section className="messages list">
+                <section className="usersContainer">
                     {
                         this.props.users.map(user => {
                             if (myFriendsUserNames.includes(user.username)) {
