@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Button } from "semantic-ui-react";
+import { Button, Form } from "semantic-ui-react";
+import "./Events.css"
 
 export default class EventsForm extends Component {
   // Set initial state
@@ -33,8 +34,8 @@ export default class EventsForm extends Component {
   render() {
     return (
       <div>
-        <form className="EventsForm">
-          <div className="form-group">
+        <Form className="EventsForm">
+          <Form.Field className="form-group">
             <label htmlFor="name">Event Name</label>
             <input
               type="text"
@@ -43,8 +44,8 @@ export default class EventsForm extends Component {
               onChange={this.handleFieldChange}
               id="name"
               placeholder="name of event" />
-          </div>
-          <div className="form-group">
+          </Form.Field>
+          <Form.Field className="form-group">
             <label htmlFor="date">Date</label>
             <input
               type="date"
@@ -54,8 +55,8 @@ export default class EventsForm extends Component {
               id="date"
               placeholder="date"
             />
-          </div>
-          <div className="form-group">
+          </Form.Field>
+          <Form.Field className="form-group">
             <label htmlFor="time">Time</label>
             <input
               type="time"
@@ -65,24 +66,25 @@ export default class EventsForm extends Component {
               id="time"
               placeholder="time"
             />
-          </div>
-          <div className="form-group">
+          </Form.Field>
+          <Form.Field className="form-group">
             <label htmlFor="location">Location</label>
             <input
-              type="location"
+              type="text"
               required
               className="form-control"
               onChange={this.handleFieldChange}
               id="location"
               placeholder="location"
             />
-          </div>
+          </Form.Field>
           <Button
             type="submit"
             onClick={this.constructNewEvent}
             className="btn btn-primary"
+            color="green"
             content="Submit" />
-        </form>
+        </Form>
       </div>
     )
   }

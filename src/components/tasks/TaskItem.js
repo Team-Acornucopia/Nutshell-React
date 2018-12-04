@@ -127,6 +127,7 @@ export default class TaskItem extends Component {
           type="checkbox"
         />
         {this.props.thing.task}{" "}
+        <button>
         <a
           href="#!"
           id={this.props.editButton_itemId}
@@ -139,10 +140,12 @@ export default class TaskItem extends Component {
         >
           Edit
         </a>{" "}
+        </button>
         <p className="listP">
           Completion: {this.props.thing.date}{" "}
           <Button
             size="mini"
+            color="red"
             className=""
             onClick={() => {
               this.props.deleteTask(this.props.thing.id);

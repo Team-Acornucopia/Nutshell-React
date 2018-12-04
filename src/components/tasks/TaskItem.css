@@ -26,6 +26,22 @@
   visibility: visible;
 }
 
+.taskContainer {
+  display: flex;
+  background-color: lavender;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: 5%;
+  border: 2px solid black;
+  padding: 30px;
+  border-radius: 10px
+}
+
+.taskHeader {
+  text-align: center;
+}
+
 .task {
   list-style-type: none;
   padding-top: 8px;

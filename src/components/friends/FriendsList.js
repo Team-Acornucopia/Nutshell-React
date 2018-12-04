@@ -1,35 +1,33 @@
 import React, { Component } from 'react'
-import NewsCard from "./NewsCard"
+import FriendsCard from "./FriendsCard"
 import { Button } from 'semantic-ui-react'
-import "./News.css"
 
-export default class NewsList extends Component {
+export default class MessagesList extends Component {
     render() {
         let currentUser = sessionStorage.getItem("username")
         return (
             <React.Fragment>
-                <section className="newsButton">
+                {/* <section className="messagesButton">
                     <Button color="green" type="button"
                         className="btn btn-success"
                         onClick={() => {
-                            this.props.history.push("/news/new")
-                        }
-                        }>
-                        New Article
+                            this.props.history.push("/messages/new")}}>New Friend
                     </Button>
-                </section>
-                <section className="news list">
+                </section> */}
+                <section className="messages list">
                     {
-                        this.props.news.map(story =>  {   
-                            if(story.userId === currentUser) {
-                                return <NewsCard key={story.id} story={story} deleteArticle={this.props.deleteArticle}{...this.props} />
+                        this.props.friends.map(friend => {
+                            if (friend.username === currentUser) {
+                                return <FriendsCard key={friend.id} friend={friend} deleteFriend={this.props.deleteFriend}{...this.props} />
                             } else {
                                 return null
                             }
                         })
                     }
+                    }
                 </section>
             </React.Fragment>
         )
     }
+    return
 }

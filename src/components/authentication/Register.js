@@ -62,6 +62,7 @@ export default class Login extends Component {
       UserManager.post(toSave);
     }
     console.log(message);
+    this.props.history.push("/home")
   };
 
   render() {
@@ -79,7 +80,6 @@ export default class Login extends Component {
             placeholder="desired username"
             required=""
             autoFocus=""
-            // ref="newUserField"
           />
           <label htmlFor="newPassword">Password</label>
           <Form.Input
@@ -88,7 +88,6 @@ export default class Login extends Component {
             id="password"
             placeholder="desired password"
             required=""
-            // ref="newPassField"
           />
           <Button basic color="green" type="submit">
             Register
