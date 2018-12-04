@@ -33,7 +33,6 @@ class ApplicationViews extends Component {
   state = {
     messages: [],
     tasks: [],
-    // taskItem: "",
     events: [],
     news: [],
     users: [],

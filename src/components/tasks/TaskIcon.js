@@ -7,7 +7,7 @@ export default class TaskIcon extends Component {
 
   render() {
 
-    return (<img className="unchecked" src={this.props.thing.icon}></img>
+    return (<img className="icon" src={this.props.thing.icon}></img>
 
     )
 

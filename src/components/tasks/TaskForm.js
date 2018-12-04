@@ -23,7 +23,8 @@ export default class TaskForm extends Component {
     const newTask = {
       task: this.state.taskItem,
       date: this.state.taskDate,
-      completed: false
+      completed: false,
+      icon: "http://icons.iconarchive.com/icons/blackvariant/button-ui-requests-1/1024/Acorn-icon.png"
     };
     this.props.addTask(newTask);
   };
