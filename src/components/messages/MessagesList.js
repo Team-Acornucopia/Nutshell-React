@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import LoggedInUsersCard from "./LoggedInUsersCard"
 import FriendsCard from "./FriendsCard"
 import NotFriendsCard from "./NotFriendsCard"
-// import MessagesCardClean from "./MessagesCardClean"
 import { Button } from 'semantic-ui-react'
 
 export default class MessagesList extends Component {
@@ -38,7 +37,6 @@ export default class MessagesList extends Component {
                 } else {
                     return <NotFriendsCard key={message.id} message={message} friends={this.props.friends} addFriend={this.addFriend} deleteMessage={this.props.deleteMessage} {...this.props} />
                 }
-                // return <MessagesCardClean key={message.id} message={message} friends={this.props.friends} addFriend={this.props.addFriend} deleteMessage={this.props.deleteMessage}{...this.props} />
             })
           }
                 </section>
