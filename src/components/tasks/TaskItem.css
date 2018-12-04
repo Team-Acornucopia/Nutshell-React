@@ -13,9 +13,9 @@
   height:15px;
   background-image: url("http://icons.iconarchive.com/icons/blackvariant/button-ui-requests-1/1024/Acorn-icon.png");
   background-repeat: no-repeat;
-  /* background-size: 30px;
+  background-size: 10px;
   background-position: right top;
-  margin-right:10px; */
+  margin-right:0px;
 }
 
 .hidden {

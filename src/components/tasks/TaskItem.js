@@ -117,11 +117,11 @@ export default class TaskItem extends Component {
     }
 
     return (
-      <li id={this.props.itemId} key={this.props.thing.id} className="task">
+      <li id={this.props.itemId} key={this.props.thing.id} className="unchecked task">
       {/* <Image src='http://icons.iconarchive.com/icons/blackvariant/button-ui-requests-1/1024/Acorn-icon.png' size='small' /> */}
         <input
           id="completed"
-          className="unchecked checkboi"
+          className="checkboi"
           defaultChecked={this.props.thing.completed}
           onClick={this.handleCheckBoxChange}
           type="checkbox"
