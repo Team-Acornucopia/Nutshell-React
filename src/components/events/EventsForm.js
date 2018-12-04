@@ -28,7 +28,9 @@ export default class EventsForm extends Component {
       location: this.state.location,
       userId: sessionStorage.getItem("username")
     };
-    this.props.addEvent(events).then(() => this.props.history.push("/events"));
+    this.props.addEvent(events).then(() => {
+      window.location.replace("http://localhost:3000/events")
+    });
   };
 
   render() {
@@ -43,28 +45,28 @@ export default class EventsForm extends Component {
               className="form-control"
               onChange={this.handleFieldChange}
               id="name"
-              placeholder="name of event" />
+              placeholder="Input Event Name Here..." />
           </Form.Field>
           <Form.Field className="form-group">
-            <label htmlFor="date">Date</label>
+            <label htmlFor="date">Select Event Date</label>
             <input
               type="date"
               required
               className="form-control"
               onChange={this.handleFieldChange}
               id="date"
-              placeholder="date"
+              placeholder="Choose Event Date Here..."
             />
           </Form.Field>
           <Form.Field className="form-group">
-            <label htmlFor="time">Time</label>
+            <label htmlFor="time">Select Event Time</label>
             <input
               type="time"
               required
               className="form-control"
               onChange={this.handleFieldChange}
               id="time"
-              placeholder="time"
+              placeholder="Choose Event Time Here..."
             />
           </Form.Field>
           <Form.Field className="form-group">
@@ -75,7 +77,7 @@ export default class EventsForm extends Component {
               className="form-control"
               onChange={this.handleFieldChange}
               id="location"
-              placeholder="location"
+              placeholder="Input Event Location Here..."
             />
           </Form.Field>
           <Button

@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import NewsCard from "./NewsCard"
 import FriendsNewsCard from "./FriendsNewsCard"
 import { Button } from 'semantic-ui-react'
-import "./News.css"
-import "./FriendsNews.css"
 
 export default class NewsList extends Component {
     render() {

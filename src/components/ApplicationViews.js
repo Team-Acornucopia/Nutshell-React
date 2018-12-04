@@ -17,8 +17,9 @@ import EventsForm from "./events/EventsForm";
 import EventsManager from "../managers/EventsManager";
 import EventsDetail from "./events/EventsDetail";
 import EventsEdit from "./events/EventsEdit"
-import UsersList from "./users/UsersList";
-import FriendsList from "./friends/FriendsList";
+import UsersDetail from "./users/UsersDetail";
+import FriendsDetail from "./users/FriendsDetail";
+import FriendsList from "./users/FriendsList";
 import FriendsManager from "../managers/FriendsManager"
 import Login from "./authentication/Login";
 import UserManager from "../managers/UserManager";
@@ -37,6 +38,7 @@ class ApplicationViews extends Component {
     news: [],
     users: [],
     friends: [],
+    users: [],
     initialized: false
   };
 
@@ -172,8 +174,8 @@ class ApplicationViews extends Component {
         })
       );
 
-  deleteEvents = id => {
-    return EventsManager.removeAndList(id).then(events =>
+  deleteEvents = (oldFriend, user) => {
+    return EventsManager.removeAndList(oldFriend, user).then(events =>
       this.setState({
         events: events
       })
@@ -313,6 +315,7 @@ class ApplicationViews extends Component {
           <Route exact path="/events" render={props => {
             if (this.isAuthenticated()) {
               return <EventsList {...props}
+                friends={this.state.friends}
                 events={this.state.events}
                 deleteEvents={this.deleteEvents} />
             } else {
@@ -348,14 +351,37 @@ class ApplicationViews extends Component {
               return < Redirect to="/login" />
             }
           }} />
-          <Route exact path="/friends" render={(props) => {
+          <Route exact path="/users" render={(props) => {
             if (this.isAuthenticated()) {
               return <FriendsList {...props}
                 friends={this.state.friends}
+                users={this.state.users}
                 addFriend={this.addFriend}
                 deleteFriend={this.deleteFriend} />
             } else {
               return <Redirect to="/login" />
+            }
+          }} />
+          <Route path="/friends/:friendsId(\d+)" render={(props) => {
+            if (this.isAuthenticated()) {
+              return <FriendsDetail {...props}
+                users={this.state.users}
+                friends={this.state.friends}
+                deleteFriend={this.deleteFriend}
+              />
+            } else {
+              return < Redirect to="/login" />
+            }
+          }} />
+          <Route path="/users/:usersId(\d+)" render={(props) => {
+            if (this.isAuthenticated()) {
+              return <UsersDetail {...props}
+                users={this.state.users}
+                friends={this.state.friends}
+                addFriend={this.addFriend}
+              />
+            } else {
+              return < Redirect to="/login" />
             }
           }} />
           <Route exact path="/home" render={props => {
@@ -363,16 +389,6 @@ class ApplicationViews extends Component {
           }
         }
         />
-          <Route exact path="/users" render={(props) => {
-            if (this.isAuthenticated()) {
-              return <UsersList {...props}
-                friends={this.state.friends}
-                addFriend={this.addFriend}
-                deleteFriend={this.deleteFriend} />
-            } else {
-              return <Redirect to="/login" />
-            }
-          }} />
         </React.Fragment>
       );
     } else {

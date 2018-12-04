@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Button, Card, Image, CardHeader } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
+import "./FriendsNews.css"
 
 export default class NewsCard extends Component {
     render() {
@@ -9,6 +10,7 @@ export default class NewsCard extends Component {
                 <Card key={this.props.story.id} className="friendsNewsCard">
                     <Card.Content className="card-body">
                         <h5 className="card-title">
+                            <Card.Header>{this.props.story.userId}'s Submitted Article:</Card.Header>
                             <Card.Header>Title: {this.props.story.title}</Card.Header>
                             <Card.Header a href={`${this.props.story.url}`}>Link to This Article</Card.Header>
                             <Card.Description>Synopsis: {this.props.story.synopsis}</Card.Description>

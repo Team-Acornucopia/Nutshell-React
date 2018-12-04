@@ -1,4 +1,4 @@
-.NewsForm {
+.EventsForm {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,20 +17,10 @@
     align-items: center;
   }
   
-  .friendsNewsCard {
-    background-color: cornsilk !important;
+  .notFriendsMessage {
+    background-color: red !important;
     border: 1px solid black !important;
     text-align: center;
-    font-style: italic;
-  }
-  
-  .newsCardGroup {
     display: flex !important;
     justify-content: center !important;
-  }
-  
-  .newsButton {
-    display: flex !important;
-    justify-content: center !important;
-    margin: 20px;
   }
