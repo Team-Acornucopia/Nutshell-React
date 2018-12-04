@@ -33,7 +33,6 @@ class ApplicationViews extends Component {
   state = {
     messages: [],
     tasks: [],
-    // taskItem: "",
     events: [],
     news: [],
     friends: [],
@@ -118,7 +117,7 @@ class ApplicationViews extends Component {
 
   addArticle = news =>
     NewsManager.addAndList(news)
-      .then(() => NewsManager.all()).then(news =>
+      .then(() => NewsManager.getAll()).then(news =>
         this.setState({
           news: news
         })
@@ -126,7 +125,7 @@ class ApplicationViews extends Component {
 
   editArticle = (news, url) =>
     NewsManager.patchAndListNews(news, url)
-      .then(() => NewsManager.all()).then(news =>
+      .then(() => NewsManager.getAll()).then(news =>
         this.setState({
           news: news
         })
@@ -135,14 +134,14 @@ class ApplicationViews extends Component {
 
   addMessage = messages =>
     MessagesManager.addAndList(messages)
-      .then(() => MessagesManager.all()).then(messages =>
+      .then(() => MessagesManager.getAll()).then(messages =>
         this.setState({
           messages: messages
         })
       );
 
   editMessage = (messages, url) =>
-    MessagesManager.patchAndListMessages(messages, url).then(() => MessagesManager.all())
+    MessagesManager.patchAndListMessages(messages, url).then(() => MessagesManager.getAll())
       .then(messages =>
         this.setState({
           messages: messages
@@ -165,13 +164,32 @@ class ApplicationViews extends Component {
     );
   };
 
-  addEvent = events =>
-    EventsManager.addAndList(events)
-      .then(() => EventsManager.all()).then(events =>
-        this.setState({
-          events: events
-        })
-      );
+  addEvent = events => {
+    return new Promise((resolve, reject) => {
+      EventsManager.addAndList(events)
+        .then(() => EventsManager.getAll()).then(events =>
+          this.setState({
+            events: events
+          }, () => {
+            resolve()
+          })
+        );
+    })
+  }
+
+  editEvents = (events, url) => {
+    return new Promise((resolve, reject) => {
+      EventsManager.patchAndListEvent(events, url)
+        .then(() => EventsManager.getAll())
+        .then(events =>
+          this.setState({
+            events: events
+          }, () => {
+            resolve()
+          })
+        );
+    })
+  }
 
   deleteEvents = (oldFriend, user) => {
     return EventsManager.removeAndList(oldFriend, user).then(events =>
@@ -197,17 +215,9 @@ class ApplicationViews extends Component {
         })
       );
 
-  editEvents = (events, url) =>
-    EventsManager.patchAndListEvent(events, url)
-      .then(() => EventsManager.all())
-      .then(events =>
-        this.setState({
-          events: events
-        })
-      );
 
   render() {
-    if(this.state.initialized) {
+    if (this.state.initialized) {
       return (
         <React.Fragment>
           <Route exact path="/messages" render={props => {
@@ -386,8 +396,8 @@ class ApplicationViews extends Component {
           <Route exact path="/home" render={props => {
             return <Home />
           }
-        }
-        />
+          }
+          />
         </React.Fragment>
       );
     } else {
