@@ -8,6 +8,7 @@ export default class NewsForm extends Component {
         synopsis: "",
         url: "",
         date: "",
+        timestamp: "",
         userId: ""
     }
 
@@ -25,6 +26,7 @@ export default class NewsForm extends Component {
                 synopsis: this.state.synopsis,
                 url: this.state.url,
                 date: this.state.date,
+                timestamp: new Date(),
                 userId: sessionStorage.getItem("username")
 
         }
