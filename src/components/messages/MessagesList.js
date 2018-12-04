@@ -30,7 +30,7 @@ export default class MessagesList extends Component {
                 <section className="messages list">
                 {
             this.props.messages.map(message => {
-                if(message.userId === currentUser) {
+                if (message.userId === currentUser) {
                     return <LoggedInUsersCard key={message.id} message={message} deleteMessage={this.props.deleteMessage} {...this.props} />
                 } else if (myFriendsUserNames.includes(message.userId)) {
                     return <FriendsCard key={message.id} message={message} deleteMessage={this.props.deleteMessage} {...this.props} />

@@ -266,6 +266,7 @@ class ApplicationViews extends Component {
             if (this.isAuthenticated()) {
               return <NewsList {...props}
                 news={this.state.news}
+                friends={this.state.friends}
                 deleteArticle={this.deleteArticle} />
             } else {
               return <Redirect to="/login" />

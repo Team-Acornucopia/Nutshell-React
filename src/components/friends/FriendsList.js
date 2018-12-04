@@ -24,7 +24,6 @@ export default class MessagesList extends Component {
                             }
                         })
                     }
-                    }
                 </section>
             </React.Fragment>
         )
