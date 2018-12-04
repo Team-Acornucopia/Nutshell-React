@@ -51,6 +51,13 @@ export default class MenuExampleHeader extends Component {
           active={activeItem === "messages"}
           onClick={this.handleItemClick}
         />
+        <Menu.Item
+          as={Link}
+          to="/friends"
+          name="friends"
+          active={activeItem === "friends"}
+          onClick={this.handleItemClick}
+        />
         <Menu.Menu position="right">
           <Menu.Item
             as={Link}
