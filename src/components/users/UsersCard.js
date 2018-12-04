@@ -14,12 +14,12 @@ export default class UsersCard extends Component {
     const { open, dimmer } = this.state;
     return (
       <Card.Group>
-        <Card key={this.props.user.id} className="card">
+        <Card color='red' key={this.props.user.id} className="card">
           <h5 className="card-title">
             <Image
               floated="right"
               size="mini"
-              src="https://react.semantic-ui.com/images/avatar/large/steve.jpg"
+              src={this.props.user.avatar}
             />
             <Card.Header>{this.props.user.username}</Card.Header>
             <Card.Meta>You are not currently friends.</Card.Meta>
@@ -48,7 +48,7 @@ export default class UsersCard extends Component {
                 <Image
                   wrapped
                   size="small"
-                  src="https://react.semantic-ui.com/images/avatar/large/rachel.png"
+                  src={this.props.user.avatar}
                 />
                 <Modal.Description>
                   <Header>{this.props.user.username}</Header>
@@ -64,7 +64,7 @@ export default class UsersCard extends Component {
                     this.props.addFriend(this.props.user.username, currentUser)
                   }
                   positive
-                  icon="checkmark"
+                  icon="add user"
                   labelPosition="right"
                   content="Add Friend"
                 />

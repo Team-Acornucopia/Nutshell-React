@@ -3,67 +3,80 @@
     {
       "username": "zac",
       "password": "saban",
-      "id": 1
+      "id": 1,
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Tamia_striatus_eating.jpg/220px-Tamia_striatus_eating.jpg"
     },
     {
       "username": "kazathur92",
       "password": "kazathur",
-      "id": 2
+      "id": 2,
+      "avatar": "https://i.pinimg.com/originals/47/43/c0/4743c0771f8ce63a1c4cab9fd85e0cab.jpg"
     },
     {
       "username": "dillonWilliams",
       "password": "12345",
-      "id": 3
+      "id": 3,
+      "avatar": "https://cdn-s3.si.com/s3fs-public/si/multimedia/photo_gallery/1001/nfl.playoffs.wild-card.fans/images/cowboys-fans%282%29.jpg"
     },
     {
       "username": "Robby",
       "password": "Hello",
-      "id": 4
+      "id": 4,
+      "avatar": "https://costumesupercentre-weblinc.netdna-ssl.com/product_images/leprechaun-sunstaches-glasses/586f5db369702d5c3108957d/original.jpg?c=1483693491"
     },
     {
       "username": "ousama",
       "password": "ousama",
-      "id": 5
+      "id": 5,
+      "avatar": "http://i.imgur.com/xV8ge.jpg?1"
     },
     {
       "username": "michael",
       "password": "cam",
-      "id": 6
+      "id": 6,
+      "avatar": "https://media.licdn.com/dms/image/C4E03AQE6KSivi-8YYQ/profile-displayphoto-shrink_800_800/0?e=1549497600&v=beta&t=wp3WVv8c1HlpB1CZlsQkfOIymqhLX7SJbtrxnvvm6lw"
     },
     {
       "username": "Elyse",
       "password": "sega",
-      "id": 7
+      "id": 7,
+      "avatar": "https://ih1.redbubble.net/image.199158057.2959/mp,550x550,gloss,ffffff,t.3.jpg"
     },
     {
       "username": "Brendan",
       "password": "rocketleague",
-      "id": 8
+      "id": 8,
+      "avatar": "https://avatars1.githubusercontent.com/u/43763999?s=460&v=4"
     },
     {
       "username": "Daniel",
       "password": "jeskai",
-      "id": 9
+      "id": 9,
+      "avatar": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/1173686_10151972143583402_978978666_n.jpg?_nc_cat=104&_nc_ht=scontent-atl3-1.xx&oh=b4148cf6ddd1bed83a0ef7b78660f666&oe=5C6FF3D8"
     },
     {
       "username": "Brad",
       "password": "bossman",
-      "id": 10
+      "id": 10,
+      "avatar": "https://amp.businessinsider.com/images/54aedc40eab8eade49e90a1a-750-536.jpg"
     },
     {
       "username": "Justina",
       "password": "pizza",
-      "id": 11
+      "id": 11,
+      "avatar": ""
     },
     {
       "username": "Richard",
       "password": "bsb",
-      "id": 12
+      "id": 12,
+      "avatar": "https://blog.orangecarton.com/wp-content/uploads/2013/05/mona_lisa_iphone.jpg"
     },
     {
       "username": "Max",
       "password": "brandnew",
-      "id": 13
+      "id": 13,
+      "avatar": ""
     }
   ],
   "friends": [

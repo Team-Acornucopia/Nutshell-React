@@ -25,20 +25,23 @@ export default class FriendsCard extends Component {
     let thisSpecificFriend;
     myFriendsUserIds.forEach(thisFriend => {
       if (thisFriend.friendname === this.props.user.username) {
+        console.log(thisFriend)
         thisSpecificFriend = thisFriend.id;
       }
     });
+
 
     const { open, dimmer } = this.state;
     return (
       <React.Fragment>
         <Card.Group>
-          <Card key={this.props.user.id} className="card">
+          <Card color='green' key={this.props.user.id} className="card">
             <h5 className="card-title">
               <Image
                 floated="right"
                 size="mini"
-                src="https://react.semantic-ui.com/images/avatar/large/steve.jpg"
+                // src="https://react.semantic-ui.com/images/avatar/large/steve.jpg"
+                src={this.props.user.avatar}
               />
 
               <Card.Header>{this.props.user.username}</Card.Header>
@@ -68,7 +71,7 @@ export default class FriendsCard extends Component {
                   <Image
                     wrapped
                     size="small"
-                    src="https://react.semantic-ui.com/images/avatar/large/rachel.png"
+                    src={this.props.user.avatar}
                   />
                   <Modal.Description>
                     <Header>{this.props.user.username}</Header>
@@ -84,7 +87,7 @@ export default class FriendsCard extends Component {
                       this.props.deleteFriend(thisSpecificFriend, currentUser)
                     }
                     negative
-                    icon="checkmark"
+                    icon="user delete"
                     labelPosition="right"
                     content="Remove Friend"
                   />
