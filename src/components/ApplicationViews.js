@@ -20,6 +20,7 @@ import EventsEdit from "./events/EventsEdit"
 import Login from "./authentication/Login";
 import UserManager from "../managers/UserManager";
 import Register from "./authentication/Register"
+import Home from "./home/Home";
 
 class ApplicationViews extends Component {
   //I added the taskItem property to the state, this doesnt affect the
@@ -313,6 +314,11 @@ class ApplicationViews extends Component {
             return < Redirect to = "/login" />
             }
         }} />
+        <Route exact path="/home" render={props => {
+            return <Home />
+          }
+        }
+        />
       </React.Fragment>
     );
   }
