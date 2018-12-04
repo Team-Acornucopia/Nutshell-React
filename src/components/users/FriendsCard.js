@@ -1,8 +1,14 @@
 import React, { Component } from "react";
 import { Button, Message, Image, Header, Modal } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import "./Friends.css"
 
 export default class FriendsCard extends Component {
+  state = { open: false };
+
+  close = () => this.setState({ open: false });
+  show = dimmer => () => this.setState({ dimmer, open: true });
+
   render() {
     let currentUser = sessionStorage.getItem("username");
     let myFriendsUserIds = this.props.friends
@@ -22,6 +28,8 @@ export default class FriendsCard extends Component {
         thisSpecificFriend = thisFriend.id;
       }
     });
+
+    const { open, dimmer } = this.state;
     return (
       <React.Fragment>
         <Message key={this.props.user.id} className="card">
@@ -29,15 +37,6 @@ export default class FriendsCard extends Component {
             <Message.Header>
               Friend's Name: {this.props.user.username}
             </Message.Header>
-            <Button
-              as={Link}
-              size="tiny"
-              color="purple"
-              className="nav-link"
-              to={`/friends/${this.props.user.id}`}
-            >
-              Details
-            </Button>
             <Button
               size="tiny"
               color="red"
@@ -48,6 +47,43 @@ export default class FriendsCard extends Component {
             >
               Delete Friend
             </Button>
+            <Modal
+              dimmer={dimmer}
+              open={open}
+              onClose={this.close}
+              trigger={
+                <Button size="tiny" color="purple" onClick={this.show(true)}>
+                  Details
+                </Button>
+              }
+            >
+              <Modal.Header>Details</Modal.Header>
+              <Modal.Content image>
+                <Image
+                  wrapped
+                  size="small"
+                  src="https://react.semantic-ui.com/images/avatar/large/rachel.png"
+                />
+                <Modal.Description>
+                  <Header>{this.props.user.username}</Header>
+                  <p>This person is your friend!</p>
+                </Modal.Description>
+              </Modal.Content>
+              <Modal.Actions>
+                <Button onClick={this.close} positive>
+                  Back
+                </Button>
+                <Button
+                  onClick={() =>
+                    this.props.deleteFriend(thisSpecificFriend, currentUser)
+                  }
+                  negative
+                  icon="checkmark"
+                  labelPosition="right"
+                  content="Remove Friend"
+                />
+              </Modal.Actions>
+            </Modal>
           </h5>
         </Message>
       </React.Fragment>

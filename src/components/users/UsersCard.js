@@ -18,15 +18,6 @@ export default class UsersCard extends Component {
           <Message.Header>
             Not Friend's Name: {this.props.user.username}
           </Message.Header>
-          {/* <Button
-            as={Link}
-            size="tiny"
-            color="purple"
-            className="nav-link"
-            to={`/users/${this.props.user.id}`}
-          >
-            Details
-          </Button> */}
           <Button
             size="tiny"
             color="green"
